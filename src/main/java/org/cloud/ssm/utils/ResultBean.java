@@ -38,7 +38,6 @@ public class ResultBean implements Serializable {
         return success("操作成功", data);
     }
 
-
     public static ResultBean success(Object data) {
         return success("操作成功", data);
     }

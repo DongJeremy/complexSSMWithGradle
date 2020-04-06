@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BaseService<T> {
-    
+
     Long getCount(T entity);
 
     Optional<T> getById(Long id);

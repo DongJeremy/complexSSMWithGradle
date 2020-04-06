@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class PageResultBean<T> implements Serializable {
-	private static final long serialVersionUID = 5071118307783022228L;
+    private static final long serialVersionUID = 5071118307783022228L;
 
     private long count;
     private int code;
     private List<T> data;
-    
+
     public PageResultBean(long count, List<T> data) {
         this.count = count;
         this.data = data;

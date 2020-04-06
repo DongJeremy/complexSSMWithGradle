@@ -11,6 +11,7 @@
            http://www.springframework.org/schema/context/spring-context.xsd">
 
   <import resource="classpath:spring/spring-mybatis.xml" />
+  <import resource="classpath:spring/spring-shiro.xml" />
   
   <context:annotation-config />
 

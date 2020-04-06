@@ -6,14 +6,14 @@ import javax.annotation.Resource;
 
 import org.cloud.ssm.entity.Employee;
 import org.cloud.ssm.mapper.EmployeeMapper;
-import org.cloud.ssm.service.EmployeeService;
+import org.cloud.ssm.service.IEmployeeService;
 import org.cloud.ssm.utils.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 
 @Service
-public class EmployeeServiceImpl extends BaseServiceImpl<EmployeeMapper, Employee> implements EmployeeService {
+public class EmployeeServiceImpl extends BaseServiceImpl<EmployeeMapper, Employee> implements IEmployeeService {
 
 	@Resource
     private EmployeeMapper employeeMapper;

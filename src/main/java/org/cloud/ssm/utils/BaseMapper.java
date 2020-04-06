@@ -15,5 +15,5 @@ public interface BaseMapper<T> {
 
     Long insertSelective(T entity);
 
-    Long updateByPrimaryKey(T entity); 
+    Long updateByPrimaryKey(T entity);
 }

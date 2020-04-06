@@ -6,6 +6,12 @@
   <typeAliases>
     <typeAlias type="org.cloud.ssm.entity.Employee" alias="Employee" />
     <typeAlias type="org.cloud.ssm.entity.Department" alias="Department" />
+    <typeAlias type="org.cloud.ssm.entity.Menu" alias="Menu" />
+    <typeAlias type="org.cloud.ssm.entity.Permission" alias="Permission" />
+    <typeAlias type="org.cloud.ssm.entity.RolePermission" alias="RolePermission" />
+    <typeAlias type="org.cloud.ssm.entity.Role" alias="Role" />
+    <typeAlias type="org.cloud.ssm.entity.UserRole" alias="UserRole" />
+    <typeAlias type="org.cloud.ssm.entity.User" alias="User" />
   </typeAliases>
 
   <plugins>
