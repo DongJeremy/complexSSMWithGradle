@@ -30,16 +30,18 @@
   <select id="selectAll" resultMap="employeeMap">
     SELECT 
     <include refid="selectColumns"/>
-    FROM `t_employee` A
-    LEFT OUTER JOIN `t_department` B ON A.department=B.id
+    FROM 
+      `t_emp` A
+    LEFT OUTER JOIN `t_dept` B ON A.department=B.id
     ORDER BY A.id
   </select>
   
   <select id="selectAllByCondition" resultMap="employeeMap">
     SELECT
     <include refid="selectColumns"/>
-    FROM `t_employee` A 
-    LEFT OUTER JOIN `t_department` B ON A.department=B.id
+    FROM 
+      `t_emp` A 
+    LEFT OUTER JOIN `t_dept` B ON A.department=B.id
     <where>
       1=1
       <if test="name != null and name != ''">
@@ -54,7 +56,8 @@
   
   <select id="selectCountByCondition" resultType="long">
     SELECT count(*)
-    FROM `t_employee` A 
+    FROM 
+      `t_emp` A 
     <where>
       1=1
       <if test="name != null and name != ''">
@@ -68,32 +71,35 @@
 
   <delete id="deleteByPrimaryKey" parameterType="long">
     DELETE FROM
-    `t_employee` WHERE `t_employee`.id=#{id}
+      `t_emp` 
+    WHERE `t_emp`.id=#{id}
   </delete>
 
   <insert id="insert" parameterType="Employee">
-    INSERT INTO `t_employee` (id,name,address,age,department,salary,tel)
+    INSERT INTO `t_emp` (id,name,address,age,department,salary,tel)
     VALUES (NULL,#{name},#{address},#{age},#{department.id},#{salary},#{tel})
   </insert>
   
   <select id="selectByPrimaryKey" resultMap="employeeMap">
     SELECT
     <include refid="selectColumns"/>
-    FROM `t_employee` A
-    LEFT OUTER JOIN `t_department` B ON A.department=B.id
+    FROM `t_emp` A
+    LEFT OUTER JOIN `t_dept` B ON A.department=B.id
     <where>
       A.id=#{id}
     </where>
   </select>
   
   <select id="selectCount" resultType="long">
-    SELECT count(*)
-    FROM `t_employee`
+    SELECT 
+      count(*)
+    FROM 
+      `t_emp`
   </select>
 
   <update id="updateByPrimaryKey" parameterType="Employee">
     UPDATE
-      `t_employee`
+      `t_emp`
     <set>
       <if test="name != null">
         name = #{name},

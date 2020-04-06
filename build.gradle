@@ -86,6 +86,7 @@ dependencies {
     implementation 'org.webjars:font-awesome:4.7.0'
     implementation 'org.webjars:layui:2.5.6'
     implementation 'org.webjars:bootstrap:3.4.1'
+    implementation 'org.webjars:echarts:4.6.0'
 	
 	//include in compile only, exclude in the war
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'

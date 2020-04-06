@@ -1,6 +1,7 @@
 package org.cloud.ssm.utils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Arith {
     /**
@@ -84,7 +85,7 @@ public class Arith {
         if (b1.compareTo(BigDecimal.ZERO) == 0) {
             return BigDecimal.ZERO.doubleValue();
         }
-        return b1.divide(b2, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
+        return b1.divide(b2, scale, RoundingMode.HALF_UP).doubleValue();
     }
 
     /**
@@ -101,6 +102,6 @@ public class Arith {
         }
         BigDecimal b = new BigDecimal(Double.toString(v));
         BigDecimal one = new BigDecimal("1");
-        return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
+        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
     }
 }
