@@ -14,7 +14,7 @@
             http://www.springframework.org/schema/aop/spring-aop.xsd">
 
   <!-- database -->
-  <context:property-placeholder location="classpath:jdbc.properties" />
+  <context:property-placeholder location="classpath:config.properties" />
 
   <!-- 配置数据源 -->
   <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
@@ -64,13 +64,11 @@
   </bean>
 
   <!-- 配置事务管理器 -->
-  <bean id="transactionManager"
-    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     <property name="dataSource" ref="dataSource" />
   </bean>
   <!-- 拦截器方式配置事物 -->
-  <tx:advice id="transactionAdvice"
-    transaction-manager="transactionManager">
+  <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
     <tx:attributes>
       <tx:method name="add*" propagation="REQUIRED" />
       <tx:method name="save*" propagation="REQUIRED" />
@@ -88,9 +86,7 @@
     </tx:attributes>
   </tx:advice>
   <aop:config>
-    <aop:pointcut id="transactionPointcut"
-      expression="execution(* org.cloud.ssm.service.impl.*.*(..))" />
-    <aop:advisor pointcut-ref="transactionPointcut"
-      advice-ref="transactionAdvice" />
+    <aop:pointcut id="transactionPointcut" expression="execution(* org.cloud.ssm.service.impl.*.*(..))" />
+    <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
   </aop:config>
 </beans>

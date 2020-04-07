@@ -7,6 +7,8 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd">
 
+  <description>Shiro Configuration</description>
+
   <!-- 加载配置属性文件 -->
   <context:property-placeholder location="classpath:config.properties" />
 
@@ -15,24 +17,24 @@
     <!-- Shiro的安全管理器，所有关于安全的操作都会经过SecurityManager -->
     <property name="securityManager" ref="securityManager" />
     <!-- 系统认证提交地址，如果用户退出即session丢失就会访问这个页面 -->
-    <property name="loginUrl" value="/admin/login" />
+    <property name="loginUrl" value="${adminPath}/login" />
     <!-- 权限验证失败跳转的页面，需要配合Spring的ExceptionHandler异常处理机制使用 -->
-    <property name="unauthorizedUrl" value="/admin/unauth" />
+    <property name="unauthorizedUrl" value="${adminPath}/unauth" />
     <!-- 自定义的过滤器链，从上向下执行，一般将/**放到最下面 -->
     <property name="filterChainDefinitions">
       <value>
         <!-- 静态资源不拦截 -->
-        /static/** = anon
-        /webjars/** = anon
+        ${adminPath}/static/** = anon
+        ${adminPath}/webjars/** = anon
 
         <!-- 登录页面不拦截 -->
-        /admin/login = anon
+        ${adminPath}/login = anon
 
         <!-- Shiro提供了退出登录的配置`logout`，会生成路径为`/logout`的请求地址，访问这个地址即会退出当前账户并清空缓存 -->
-        /logout = logout
+        ${adminPath}/logout = logout
 
         <!-- `/**`表示所有请求，表示访问该地址的用户是身份验证通过或RememberMe登录的都可以 -->
-        /admin/** = authc
+        ${adminPath}/admin/** = authc
       </value>
     </property>
   </bean>
@@ -74,7 +76,7 @@
 
   <!-- Redis Manager -->
   <bean id="redisManager" class="org.crazycake.shiro.RedisManager">
-    <property name="host" value="192.168.1.202:6379" />
+    <property name="host" value="${redis.host}:${redis.port}" />
   </bean>
 
   <!-- Realm实现 -->
