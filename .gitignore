@@ -1,7 +1,10 @@
 # Compiled class file
 *.class
 bin/
+build/
 .gradle
+autogen/src
+autogen/resource
 
 # Log file
 *.log
