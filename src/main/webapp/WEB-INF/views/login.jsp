@@ -60,7 +60,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             var loop = setInterval(function() {
                 if(winObj.closed) {
                     clearInterval(loop);
-                    window.location.href = "/admin/main";
+                    window.location.href = "<%=basePath%>admin/main";
                 }
             }, 1000);
         }
@@ -74,7 +74,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 // 操作对象
                 var form = layui.form;
                 form.on('submit(login)', function (data) {
-                    $.post('login', data.field, function (result) {
+                    $.post('<%=basePath%>login', data.field, function (result) {
                         handlerResult(result, loginDone);
                     });
                     return false;
@@ -84,7 +84,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
 
         function generateCaptcha(obj) {
-            $(obj).attr("src", "/captcha?timestamp=" + (new Date()).valueOf());
+            $(obj).attr("src", "captcha?timestamp=" + (new Date()).valueOf());
         }
 
         function loginDone(obj) {
@@ -92,7 +92,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 icon: 1,
                 time: 500
             }, function () {
-                location.href = 'main';
+                location.href = '<%=basePath%>admin/main';
             });
         }
     </script>

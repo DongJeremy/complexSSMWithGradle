@@ -20,46 +20,59 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css">
 <link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/zadmin.css" media="all">
-<link rel="stylesheet" href="<%=basePath%>static/css/dtree.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/common.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/font.css">
+<script type="text/javascript">
+	var basePath = "<%=basePath%>";
+	localStorage.setItem('basePath', basePath)
+</script>
 </head>
 <body class="layui-layout-body">
   <div class="layui-layout layui-layout-admin">
-    <!-- Main Header -->
+    <!-- 导航栏 -->
     <div class="layui-header">
       <!-- logo 区域 -->
-      <div class="layui-logo">
-        <cite>&nbsp;PESTLE&emsp;</cite>
-      </div>
-
-      <!-- 头部区域 -->
-      <ul class="layui-nav layui-layout-left">
-        <li class="layui-nav-item" lay-unselect><a lay-event="flexible" title="侧边伸缩"> 
-          <i class="layui-icon layui-icon-shrink-right"></i>
-        </a></li>
-        <!-- 面包屑 -->
-        <span class="layui-breadcrumb layui-anim layui-anim-up"><a><cite>首页</cite></a></span>
-      </ul>
-
-      <!-- 头像区域 -->
+      <a href="#" class="layui-logo">
+        <span class="layui-logo-mini">TIMO</span>
+        <span class="layui-logo-lg">TIMO 后台</span>
+      </a>
+      <a class="side-toggle layui-layout-left" href="#"> 
+        <i class="layui-icon layui-icon-shrink-right"></i> 
+        <i class="layui-icon layui-icon-spread-left"></i>
+      </a>
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
-          <a> <img src="<%=basePath%>static/images/avatar.png" class="layui-nav-img" alt="头像">
-            <cite><shiro:principal property="username" /></cite> <span class="layui-nav-more"></span>
+          <a href="#"> 
+            <i class="fa fa-bell-o fa-lg"></i>
           </a>
-          <dl class="layui-nav-child layui-anim layui-anim-upbit">
-            <!--                        <dd lay-unselect>-->
-            <!--                            <a href="#">ä¸ªäººä¸­å¿</a>-->
-            <!--                        </dd>-->
-            <!--                        <dd lay-unselect>-->
-            <!--                            <a href="#">ä¿®æ¹å¯ç </a>-->
-            <!--                        </dd>-->
-            <!--                        <hr>-->
-            <dd lay-unselect>
-              <a onclick="logout()">退出</a>
-            </dd>
-          </dl></li>
+        </li>
+        <li class="layui-nav-item">
+          <a class="timo-screen-full" href="#"> 
+            <i class="fa layui-icon layui-icon-screen-full"></i>
+          </a>
+        </li>
+        <li class="layui-nav-item timo-nav-user">
+          <a class="timo-header-nickname">TIMO</a>
+          <div class="layui-nav-child">
+            <div class="timo-nav-child-box">
+              <div>
+                <a class="open-popup" data-title="个人信息" data-url="" data-size="680,464">
+                  <!-- -->
+                  <i class="fa fa-user-o"></i> 个人信息
+                </a>
+              </div>
+              <div>
+                <a class="open-popup" data-title="修改密码" data-url="" data-size="456,296">
+                  <!-- -->
+                  <i class="fa fa-lock" style="font-size: 17px; width: 12px;"></i>修改密码
+                </a>
+              </div>
+              <div>
+                <a onclick="logout()"><i class="fa fa-power-off"></i>退出登录</a>
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
 
@@ -98,21 +111,20 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         </ul>
       </div>
     </div>
-
-    <div class="layui-body">
-      <div class="layui-pagetabs">
-        <div class="layui-icon admin-tabs-control layui-icon-refresh-3" lay-event="refresh"></div>
-        <div class="layui-tab" lay-unauto lay-allowclose="true" lay-filter="lay-tab">
-          <ul class="layui-tab-title">
-            <li lay-id="home" lay-url="welcome" class="layui-this"><i class="layui-icon layui-icon-home"></i></li>
-          </ul>
-          <div class="layui-tab-content">
-            <div class="layui-tab-item layui-show">
-              <iframe src="<%=basePath%>admin/welcome" class="layui-iframe"></iframe>
-            </div>
-          </div>
+    
+    <div class="layui-body layui-tab" lay-unauto lay-allowclose="true" lay-filter="iframe-tabs">
+      <!-- 标签栏 -->
+      <ul class="layui-tab-title">
+        <li lay-id="home" lay-url="home" class="layui-this">
+          <i class="layui-icon layui-icon-home"></i> 主页  
+        </li>
+      </ul>
+      <!-- 内容区域-->
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+          <iframe src="<%=basePath%>admin/welcome" class="layui-layout-iframe" style="border: none;"></iframe>
         </div>
-      </div>
+      </div> 
     </div>
 
     <!-- 底部固定区域 -->
@@ -126,13 +138,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
   <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
   <script src="<%=basePath%>static/js/common.js"></script>
+  <script src="<%=basePath%>static/js/zadmin.js"></script>
   <script>
 	function logout() {
 		sessionStorage.removeItem("tabs");
 		sessionStorage.removeItem("currentTabId");
-		$.post('/admin/logout', function(result) {
+		$.post('logout', function(result) {
 			if (result.code == 0) {
-				window.location.href = '/admin/login';
+				window.location.href = '<%=basePath%>login';
 			}
 		}, 'json');
 	}

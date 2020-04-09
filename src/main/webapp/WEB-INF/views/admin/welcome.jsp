@@ -112,7 +112,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     type: 'line'
                 }]
             };
-            layui.$.get('admin/weekLoginCount', function (data) {
+            layui.$.get('weekLoginCount', function (data) {
             	option.series[0].data = data;
                 // 使用刚指定的配置项和数据显示图表。
                 myChart.setOption(option);

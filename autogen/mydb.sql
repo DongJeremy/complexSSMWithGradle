@@ -18,6 +18,105 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
+-- Table structure for sys_permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_permissions`;
+CREATE TABLE `sys_permissions`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `permission` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `description` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_permissions
+-- ----------------------------
+INSERT INTO `sys_permissions` VALUES (1, 'user:create', '用户模块新增');
+INSERT INTO `sys_permissions` VALUES (2, 'user:update', '用户模块修改');
+INSERT INTO `sys_permissions` VALUES (3, 'user:select', '用户模块查询');
+INSERT INTO `sys_permissions` VALUES (4, 'user:delete', '用户模块删除');
+
+-- ----------------------------
+-- Table structure for sys_roles
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_roles`;
+CREATE TABLE `sys_roles`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `role` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `description` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_roles
+-- ----------------------------
+INSERT INTO `sys_roles` VALUES (1, 'admin', '管理员');
+INSERT INTO `sys_roles` VALUES (2, 'user', '用户管理员');
+
+-- ----------------------------
+-- Table structure for sys_roles_permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_roles_permissions`;
+CREATE TABLE `sys_roles_permissions`  (
+  `role_id` bigint(20) NOT NULL,
+  `permission_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`role_id`, `permission_id`) USING BTREE,
+  INDEX `sys_roles_permissions_ibfk_2`(`permission_id`) USING BTREE,
+  CONSTRAINT `sys_roles_permissions_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `sys_roles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `sys_roles_permissions_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `sys_permissions` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_roles_permissions
+-- ----------------------------
+INSERT INTO `sys_roles_permissions` VALUES (1, 1);
+INSERT INTO `sys_roles_permissions` VALUES (1, 2);
+INSERT INTO `sys_roles_permissions` VALUES (1, 3);
+INSERT INTO `sys_roles_permissions` VALUES (2, 3);
+INSERT INTO `sys_roles_permissions` VALUES (1, 4);
+
+-- ----------------------------
+-- Table structure for sys_users
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_users`;
+CREATE TABLE `sys_users`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `password` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_users
+-- ----------------------------
+INSERT INTO `sys_users` VALUES (1, 'admin', '$shiro1$SHA-256$50000$JO3AIB1c5YxUsInNrfAugQ==$pfI6Q+fjzx8/iToXEhnpXgLH3VErwu01NtN+cKfg1yQ=', 1, 'admin@cloud.org', '2019-06-21 22:21:30', '2019-06-21 22:21:05');
+INSERT INTO `sys_users` VALUES (2, 'ddw', '$shiro1$SHA-256$50000$9GzaN2eU7eYwWnYw8U2VfQ==$byzAVZ92zBHfqV8fkdL7CSU/hfqvhcKgVIhs7skyZxQ=', 1, NULL, '2019-06-21 22:54:08', '2019-06-21 22:21:07');
+
+-- ----------------------------
+-- Table structure for sys_users_roles
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_users_roles`;
+CREATE TABLE `sys_users_roles`  (
+  `user_id` bigint(20) NOT NULL,
+  `role_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`user_id`, `role_id`) USING BTREE,
+  INDEX `sys_users_roles_ibfk_2`(`role_id`) USING BTREE,
+  CONSTRAINT `sys_users_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `sys_users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `sys_users_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `sys_roles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_users_roles
+-- ----------------------------
+INSERT INTO `sys_users_roles` VALUES (1, 1);
+INSERT INTO `sys_users_roles` VALUES (1, 2);
+INSERT INTO `sys_users_roles` VALUES (2, 2);
+
+-- ----------------------------
 -- Table structure for t_dept
 -- ----------------------------
 DROP TABLE IF EXISTS `t_dept`;

@@ -1,5 +1,5 @@
 layui.config({
-    base: "static/js/",
+    base: localStorage.getItem('basePath')+ "static/js/",
 }).use(["tabRightMenu"], function () {
     var tabRightMenu = layui.tabRightMenu;
 
@@ -72,7 +72,7 @@ function dateFormat(fmt, date) {
 $(document).ajaxError(function(event, response){
     console.log("错误响应状态码: ",response.status);
     console.log("错误响应结果: ",response.responseJSON);
-    showError(response.responseJSON.msg);
+    //showError(response.responseJSON.msg);
 });
 
 /**

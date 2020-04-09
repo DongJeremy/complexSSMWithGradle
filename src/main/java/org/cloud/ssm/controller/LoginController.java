@@ -15,12 +15,10 @@ import org.cloud.ssm.utils.ResultBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/")
 public class LoginController extends BaseController {
     /**
      * GET 登录
@@ -32,7 +30,7 @@ public class LoginController extends BaseController {
     public String login() {
         logger.debug("GET请求登录");
         if (SecurityUtils.getSubject().isAuthenticated()) {
-            return "redirect:/main";
+            return "redirect:/admin";
         }
         return "login";
     }

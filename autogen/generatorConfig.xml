@@ -46,6 +46,14 @@
       enableCountByExample="false" enableDeleteByExample="false" 
       enableSelectByExample="false" enableUpdateByExample="false">
     </table>
+    <table schema="mydb" tableName="t_dept" domainObjectName="Department" 
+      enableCountByExample="false" enableDeleteByExample="false" 
+      enableSelectByExample="false" enableUpdateByExample="false">
+    </table>
+    <table schema="mydb" tableName="t_menu" domainObjectName="Menu" 
+      enableCountByExample="false" enableDeleteByExample="false" 
+      enableSelectByExample="false" enableUpdateByExample="false">
+    </table>
 
   </context>
 </generatorConfiguration>
