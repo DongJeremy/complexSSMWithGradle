@@ -129,7 +129,7 @@ dependencies {
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
 	providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.3'	
 	
-	mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.5'
+	mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.0'
     mybatisGenerator 'mysql:mysql-connector-java:5.1.48'
     mybatisGenerator 'tk.mybatis:mapper:4.1.5'
 }

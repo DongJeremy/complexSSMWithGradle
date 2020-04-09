@@ -4,7 +4,7 @@ bin/
 build/
 .gradle
 autogen/src
-autogen/resource
+autogen/resources
 
 # Log file
 *.log
