@@ -92,7 +92,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 icon: 1,
                 time: 500
             }, function () {
-                location.href = '<%=basePath%>admin/main';
+                location.href = '<%=basePath%>admin';
             });
         }
     </script>

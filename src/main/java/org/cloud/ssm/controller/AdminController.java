@@ -66,20 +66,20 @@ public class AdminController {
     @OperationLog("获取用户列表")
     @GetMapping("/empView")
     public String empListView(ModelMap model) throws Exception {
-        model.addAttribute("deptList", departmentService.getAll());
+        model.addAttribute("departmentList", departmentService.getAll());
         return "admin/emp/emp-list";
     }
 
     @GetMapping("/empChangeView/{id}")
     public String empUpdatePage(ModelMap model, @PathVariable("id") Long id) throws Exception {
-        model.addAttribute("emp", employeeService.getById(id).orElse(new Employee()));
-        model.addAttribute("deptList", departmentService.getAll());
+        model.addAttribute("employee", employeeService.getById(id).orElse(new Employee()));
+        model.addAttribute("departmentList", departmentService.getAll());
         return "admin/emp/emp-add";
     }
 
     @GetMapping("/empChangeView")
     public String empAddPage(ModelMap model) throws Exception {
-        model.addAttribute("deptList", departmentService.getAll());
+        model.addAttribute("departmentList", departmentService.getAll());
         return "admin/emp/emp-add";
     }
 
@@ -90,7 +90,7 @@ public class AdminController {
 
     @GetMapping("/deptChangeView/{id}")
     public String deptUpdatePage(ModelMap model, @PathVariable("id") Long id) throws Exception {
-        model.addAttribute("dept", departmentService.getById(id).orElse(new Department()));
+        model.addAttribute("department", departmentService.getById(id).orElse(new Department()));
         return "admin/dept/dept-add";
     }
 

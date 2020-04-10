@@ -91,7 +91,7 @@ dependencies {
 	
 	// mysql driver
 	implementation 'mysql:mysql-connector-java:5.1.48'
-	implementation 'com.alibaba:druid:1.1.21'
+	//implementation 'com.alibaba:druid:1.1.22'
 	
 	implementation "com.fasterxml.jackson.core:jackson-databind:2.10.3"
 	implementation "com.fasterxml.jackson.core:jackson-annotations:2.10.3"

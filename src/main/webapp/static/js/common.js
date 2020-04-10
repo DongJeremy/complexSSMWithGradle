@@ -18,7 +18,9 @@ layui.config({
 
 /**
  * 显示错误信息
- * @param msg： 错误信息
+ * 
+ * @param msg：
+ *            错误信息
  */
 function showError(msg) {
     layer.msg(msg, {icon: 2});
@@ -26,8 +28,11 @@ function showError(msg) {
 
 /**
  * 处理 ajax 请求结果
- * @param result： ajax 返回的结果
- * @param fn： 成功的处理函数 ( 传入data: fn(result.data) )
+ * 
+ * @param result：
+ *            ajax 返回的结果
+ * @param fn：
+ *            成功的处理函数 ( 传入data: fn(result.data) )
  */
 function handlerResult(result, fn) {
     // 成功执行操作，失败提示原因
@@ -50,13 +55,13 @@ function getWeekList() {
 
 function dateFormat(fmt, date) {
     var o = {
-        "M+": date.getMonth() + 1,                      //月份
-        "d+": date.getDate(),                           //日
-        "h+": date.getHours(),                          //小时
-        "m+": date.getMinutes(),                        //分
-        "s+": date.getSeconds(),                        //秒
-        "q+": Math.floor((date.getMonth() + 3) / 3),    //季度
-        "S": date.getMilliseconds()                     //毫秒
+        "M+": date.getMonth() + 1,                      // 月份
+        "d+": date.getDate(),                           // 日
+        "h+": date.getHours(),                          // 小时
+        "m+": date.getMinutes(),                        // 分
+        "s+": date.getSeconds(),                        // 秒
+        "q+": Math.floor((date.getMonth() + 3) / 3),    // 季度
+        "S": date.getMilliseconds()                     // 毫秒
     };
     if (/(y+)/.test(fmt))
         fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
@@ -72,7 +77,7 @@ function dateFormat(fmt, date) {
 $(document).ajaxError(function(event, response){
     console.log("错误响应状态码: ",response.status);
     console.log("错误响应结果: ",response.responseJSON);
-    //showError(response.responseJSON.msg);
+    showError(response.responseJSON.msg);
 });
 
 /**
@@ -84,8 +89,10 @@ $.ajaxSetup({
 
 /**
  * 获取 URL 中查询条件部分的参数
- * @param name      参数名称
- * @returns         参数值
+ * 
+ * @param name
+ *            参数名称
+ * @returns 参数值
  */
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -132,7 +139,9 @@ function uuid() {
         s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
     }
     s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
-    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the
+                                                        // clock_seq_hi_and_reserved
+                                                        // to 01
     s[8] = s[13] = s[18] = s[23] = "-";
   
     var uuid = s.join("");
