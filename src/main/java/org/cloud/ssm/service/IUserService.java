@@ -65,6 +65,6 @@ public interface IUserService extends BaseService<User> {
 
     public boolean enableUserByID(Long id);
 
-    public void updatePasswordByUserId(Long id, String password);
+    public boolean updatePasswordByUserId(Long id, String password0, String password1);
 
 }

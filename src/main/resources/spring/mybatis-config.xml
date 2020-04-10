@@ -12,6 +12,7 @@
     <typeAlias type="org.cloud.ssm.entity.Role" alias="Role" />
     <typeAlias type="org.cloud.ssm.entity.UserRole" alias="UserRole" />
     <typeAlias type="org.cloud.ssm.entity.User" alias="User" />
+    <typeAlias type="org.cloud.ssm.entity.SysLog" alias="SysLog" />
   </typeAliases>
 
   <plugins>

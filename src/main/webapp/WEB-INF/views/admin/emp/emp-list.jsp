@@ -27,7 +27,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   </div>
   <div class="animated fadeIn layui-card">
     <div class="layui-card-header timo-card-header">
-      <span><i class="fa fa-bars"></i> 用户管理</span> <i class="layui-icon layui-icon-refresh refresh-btn"></i>
+      <span><i class="fa fa-bars"></i> 雇员管理</span> <i class="layui-icon layui-icon-refresh refresh-btn"></i>
     </div>
     <div class="layui-card-body">
       <form class="layui-form">
@@ -46,9 +46,9 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </div>
               </div>
               <div class="layui-inline">
-                <label class="layui-form-label">用户名</label>
+                <label class="layui-form-label">雇员名</label>
                 <div class="layui-input-block">
-                  <input id="dataReload" name="id" value="" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                  <input id="dataReload" name="id" value="" placeholder="请输入雇员名" autocomplete="off" class="layui-input">
                 </div>
               </div>
               <div class="layui-inline">
@@ -87,8 +87,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   <script>
     layui.use(['table', 'element', 'form'], function () {
         var table = layui.table
-        , $ = layui.$
-        , form = layui.form;
+              , $ = layui.$
+           , form = layui.form;
 
         table.render({
             elem: '#user-table'
@@ -110,7 +110,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 ]
             ]
         });
-        
+
         $("#searchBtn").on("click",function(){
             var dataReload = $('#dataReload')
             , deptId = $('.timo-search-select');
@@ -191,24 +191,24 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         }
 
         function del(obj) {
-            layer.confirm("确定删除用户吗?", {icon: 3, title: '提示'}, function (index) {//确定回调
+            layer.confirm("确定删除雇员吗?", {icon: 3, title: '提示'}, function (index) {//确定回调
                 var id = obj.data.id;
                 ajaxJsonRequest("DELETE", '<%=basePath%>api/employee/' + id, null, function(data) {
-							layer.close(index);
-							handlerResult(data, deleteDone)
-						});
-					}, function(index) {//取消回调
-						layer.close(index);
-					});
-            }
+                    layer.close(index);
+                    handlerResult(data, deleteDone)
+                });
+            }, function(index) {//取消回调
+                layer.close(index);
+            });
+        }
 
-				function deleteDone(data) {
-					parent.layer.msg("删除成功", {
-						icon : 6
-					});
-					table.reload('userTable', {});
-				}
-		});
-	</script>
+        function deleteDone(data) {
+            parent.layer.msg("删除成功", {
+                icon : 6
+            });
+            table.reload('userTable', {});
+        }
+    });
+  </script>
 </body>
 </html>

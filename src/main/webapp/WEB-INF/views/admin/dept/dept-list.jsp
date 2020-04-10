@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+String path = request.getContextPath();
+String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
 <html>
@@ -136,20 +135,20 @@
                 }, function(index) {
                     var id = obj.data.id;
                     ajaxJsonRequest("DELETE", '<%=basePath%>api/department/' + data.id, null, function(data) {
-                                layer.close(index);
-                                handlerResult(data, function() {
-                                    parent.layer.msg("删除成功", {
-                                        icon : 6
-                                    });
-                                    table.reload('deptTable');
-                                });
+                        layer.close(index);
+                        handlerResult(data, function() {
+                            parent.layer.msg("删除成功", {
+                                icon : 6
                             });
-                        }, function(index) {
-                            layer.close(index);
+                            table.reload('deptTable');
                         });
-                    }
+                    });
+                }, function(index) {
+                        layer.close(index);
                 });
-            });
-        </script>
+            }
+        });
+    });
+  </script>
 </body>
 </html>
