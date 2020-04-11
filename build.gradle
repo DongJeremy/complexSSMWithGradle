@@ -3,13 +3,14 @@ buildscript {
         SpringVersion = '5.2.5.RELEASE'
     }
 	repositories {
-		maven {
-			url = "http://192.168.0.243:8081/repository/maven-public/"
-			credentials {
-				username 'admin'
-				password 'admin123'
-			}
-		}
+		//maven {
+		//	url = "http://192.168.0.243:8081/repository/maven-public/"
+		//	credentials {
+		//		username 'admin'
+		//		password 'admin123'
+		//	}
+		//}
+		maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 		jcenter()
 	}
     dependencies {
@@ -45,13 +46,14 @@ war {
 repositories {
 	// Use jcenter for resolving dependencies.
 	// You can declare any Maven/Ivy/file repository here.
-	maven {
-		url = "http://192.168.0.243:8081/repository/maven-public/"
-		credentials {
-			username 'admin'
-			password 'admin123'
-		}
-	}
+	//maven {
+	//	url = "http://192.168.0.243:8081/repository/maven-public/"
+	//	credentials {
+	//		username 'admin'
+	//		password 'admin123'
+	//	}
+	//}
+	maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 	jcenter()
 }
 
@@ -106,6 +108,11 @@ dependencies {
 	implementation 'org.apache.shiro:shiro-ehcache:1.5.2'
 	implementation 'org.apache.shiro:shiro-spring:1.5.2'
 	implementation 'org.crazycake:shiro-redis:3.2.3'
+	
+	// poi
+	implementation 'org.apache.poi:poi:3.17'
+	implementation 'org.apache.poi:poi-ooxml:3.17'
+	
 	
 	// dozer
 	implementation 'net.sf.dozer:dozer:5.5.1'

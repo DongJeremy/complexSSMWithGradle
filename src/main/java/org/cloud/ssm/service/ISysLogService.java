@@ -5,6 +5,6 @@ import org.cloud.ssm.utils.BaseService;
 
 public interface ISysLogService extends BaseService<SysLog> {
 
-    public void clearLogs();
+    void clearLogs();
 
 }

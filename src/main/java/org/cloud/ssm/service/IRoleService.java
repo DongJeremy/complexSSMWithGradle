@@ -13,7 +13,7 @@ public interface IRoleService extends BaseService<Role> {
      * @param roleId
      * @param permissionIds
      */
-    public void correlationPermissions(Long roleId, Long... permissionIds);
+    void correlationPermissions(Long roleId, Long... permissionIds);
 
     /**
      * 移除角色-权限之间关系
@@ -21,10 +21,10 @@ public interface IRoleService extends BaseService<Role> {
      * @param roleId
      * @param permissionIds
      */
-    public void uncorrelationPermissions(Long roleId, Long... permissionIds);
+    void uncorrelationPermissions(Long roleId, Long... permissionIds);
 
-    public List<Role> getPagedRole(int pageNum, int pageSize);
+    List<Role> getPagedRole(int pageNum, int pageSize);
 
-    public void deleteRoles(Long roleid);// 删除该角色的所有权限关联
+    void deleteRoles(Long roleid);// 删除该角色的所有权限关联
 
 }

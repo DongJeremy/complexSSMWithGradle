@@ -22,47 +22,46 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/department")
 public class DepartmentController {
 
-	@Autowired
-	private IDepartmentService service;
+    @Autowired
+    private IDepartmentService service;
 
-	@GetMapping("/list")
-	public @ResponseBody 
-	PageResultBean<Department> listDepartment(
-			@RequestParam(value = "page", defaultValue = "1") int page,
+    @GetMapping("/list")
+    public @ResponseBody PageResultBean<Department> listDepartment(
+            @RequestParam(value = "page", defaultValue = "1") int page,
             @RequestParam(value = "limit", defaultValue = "10") int limit) {
-		List<Department> depts = service.getAll(page, limit);
-		long count = service.getCount(new Department());
-		return new PageResultBean<Department>(count, depts);
-	}
+        List<Department> depts = service.getAll(page, limit);
+        long count = service.getCount(new Department());
+        return new PageResultBean<Department>(count, depts);
+    }
 
-	@PostMapping
-	public @ResponseBody ResultBean addDepartment(@RequestBody Department department) {
-		service.save(department);
-		return ResultBean.success();
-	}
+    @PostMapping
+    public @ResponseBody ResultBean addDepartment(@RequestBody Department department) {
+        service.save(department);
+        return ResultBean.success();
+    }
 
-	@DeleteMapping("/{id}")
-	public @ResponseBody ResultBean deleteDepartment(@PathVariable Long id) {
-		service.deleteById(id);
-		return ResultBean.success();
-	}
-	
-	@GetMapping("/get")
-	public @ResponseBody Department getDepartment(Department department) {
-		return service.getById(department.getId()).orElse(new Department());
-	}
-	
-	@PutMapping
-	public @ResponseBody ResultBean updateDepartment(@RequestBody Department department) {
-		service.save(department);
-		return ResultBean.success();
-	}
-	
-	@PostMapping("delete")
+    @DeleteMapping("/{id}")
+    public @ResponseBody ResultBean deleteDepartment(@PathVariable Long id) {
+        service.deleteById(id);
+        return ResultBean.success();
+    }
+
+    @GetMapping("/get")
+    public @ResponseBody Department getDepartment(Department department) {
+        return service.getById(department.getId()).orElse(new Department());
+    }
+
+    @PutMapping
+    public @ResponseBody ResultBean updateDepartment(@RequestBody Department department) {
+        service.save(department);
+        return ResultBean.success();
+    }
+
+    @PostMapping("delete")
     @ResponseBody
     public ResultBean removeDepartment(@RequestBody List<String> ids) {
         for (String id : ids) {
-        	service.deleteById(Long.parseLong(id));
+            service.deleteById(Long.parseLong(id));
         }
         return ResultBean.success();
     }

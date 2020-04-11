@@ -13,7 +13,7 @@
   <import resource="spring-mybatis.xml" />
   <import resource="spring-shiro.xml" />
   <import resource="spring-dozer.xml" />
-  
+
   <context:annotation-config />
 
   <context:component-scan base-package="org.cloud">

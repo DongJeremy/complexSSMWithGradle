@@ -1,7 +1,10 @@
 package org.cloud.ssm.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.cloud.ssm.entity.Department;
 import org.cloud.ssm.entity.Employee;
@@ -9,6 +12,8 @@ import org.cloud.ssm.service.IDepartmentService;
 import org.cloud.ssm.service.IEmployeeService;
 import org.cloud.ssm.sys.annotation.OperationLog;
 import org.cloud.ssm.sys.info.Server;
+import org.cloud.ssm.utils.ExcelUtils;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,7 +25,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    
+
+    @Autowired
+    Mapper mapper;
+
     @Autowired
     private IEmployeeService employeeService;
 
@@ -70,6 +78,18 @@ public class AdminController {
         return "admin/emp/emp-list";
     }
 
+    @GetMapping("/empView/excel/download")
+    public void empViewDownload(HttpServletResponse response) throws IOException {
+        String excelFileName = "employee";
+        List<Employee> list = employeeService.getAll();
+        ExcelUtils.exportToFile(list, excelFileName, response);
+    }
+
+    @GetMapping("/empView/excel/upload")
+    public String empViewUpload(HttpServletResponse response) throws IOException {
+        return "admin/emp/emp-upload";
+    }
+
     @GetMapping("/empChangeView/{id}")
     public String empUpdatePage(ModelMap model, @PathVariable("id") Long id) throws Exception {
         model.addAttribute("employee", employeeService.getById(id).orElse(new Employee()));
@@ -113,7 +133,7 @@ public class AdminController {
     public String userView(ModelMap model) throws Exception {
         return "admin/user/user-list";
     }
-    
+
     @GetMapping("/temp")
     public String temp(ModelMap model) throws Exception {
         return "admin/temp";
@@ -124,4 +144,5 @@ public class AdminController {
         model.addAttribute("id", id);
         return "admin/user/user-reset";
     }
+
 }

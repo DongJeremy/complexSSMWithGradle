@@ -18,17 +18,17 @@ import oshi.software.os.OperatingSystem;
 import oshi.util.Util;
 
 public class Server {
-    
+
     private static final int OSHI_WAIT_SECOND = 1000;
-    
+
     private Cpu cpu = new Cpu();
-    
+
     private Mem mem = new Mem();
-    
+
     private Jvm jvm = new Jvm();
-    
+
     private Sys sys = new Sys();
-    
+
     public Cpu getCpu() {
         return cpu;
     }
@@ -87,7 +87,7 @@ public class Server {
         setJvmInfo();
 
         setSysFiles(si.getOperatingSystem());
-        
+
     }
 
     private void setCpuInfo(CentralProcessor processor) {
@@ -110,7 +110,7 @@ public class Server {
         cpu.setWait(iowait);
         cpu.setFree(idle);
     }
-    
+
     /**
      * 设置内存信息
      */
@@ -165,7 +165,7 @@ public class Server {
             sysFiles.add(sysFile);
         }
     }
-    
+
     /**
      * 字节转换
      *

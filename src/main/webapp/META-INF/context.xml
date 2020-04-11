@@ -4,7 +4,7 @@
         driverClassName="com.mysql.jdbc.Driver" 
         name="jdbc/Datasource" 
         type="javax.sql.DataSource" 
-        url="jdbc:mysql://localhost:3306/mydb?characterEncoding=UTF-8" 
+        url="jdbc:mysql://192.168.1.202:3306/mydb?characterEncoding=UTF-8" 
         username="cloud"
         password="passwd" />
 </Context>

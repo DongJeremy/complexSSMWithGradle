@@ -2,99 +2,115 @@ package org.cloud.ssm.entity;
 
 import java.io.Serializable;
 
+import org.cloud.ssm.sys.annotation.ExcelInfo;
+
 public class Employee implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	private Long id;
-	private String name;
-	private String address;
-	private Integer age;
-	private Department department;
-	private Integer salary;
-	private String tel;
+    private static final long serialVersionUID = 1L;
 
-	public Employee() {
-		super();
-	}
+    @ExcelInfo(columnIndex = 0, columnName = "序号")
+    private Long id;
 
-	public Employee(Long id, String name, String address, Integer age, Department department, Integer salary, String tel) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.address = address;
-		this.age = age;
-		this.department = department;
-		this.salary = salary;
-		this.tel = tel;
-	}
+    @ExcelInfo(columnIndex = 1, columnName = "用户名")
+    private String name;
 
-	public Employee(Long id, String name, String address, Integer age) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.address = address;
-		this.age = age;
-	}
+    @ExcelInfo(columnIndex = 2, columnName = "地址")
+    private String address;
 
-	public Long getId() {
-		return id;
-	}
+    @ExcelInfo(columnIndex = 3, columnName = "年龄")
+    private Integer age;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private Department department;
 
-	public String getName() {
-		return name;
-	}
+    @ExcelInfo(columnIndex = 5, columnName = "工资")
+    private Integer salary;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @ExcelInfo(columnIndex = 4, columnName = "手机")
+    private String tel;
 
-	public String getAddress() {
-		return address;
-	}
+    public Employee() {
+        super();
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public Employee(Long id, String name, String address, Integer age, Department department, Integer salary,
+            String tel) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.age = age;
+        this.department = department;
+        this.salary = salary;
+        this.tel = tel;
+    }
 
-	public Integer getAge() {
-		return age;
-	}
+    public Employee(Long id, String name, String address, Integer age) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.age = age;
+    }
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Department getDepartment() {
-		return department;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Integer getSalary() {
-		return salary;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setSalary(Integer salary) {
-		this.salary = salary;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public String getTel() {
-		return tel;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+    public Integer getAge() {
+        return age;
+    }
 
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", age=" + age + "]";
-	}
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", age=" + age + "]";
+    }
 
 }

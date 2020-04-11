@@ -64,6 +64,12 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
               <button class="layui-btn open-popup" data-type="getCheckData" id="del_btn">
                 <i class="fa fa-trash"></i> 删除
               </button>
+              <button class="layui-btn open-popup" id="import_btn">
+                <i class="fa fa-sign-in"></i> 导入
+              </button>
+              <button class="layui-btn open-popup" id="export_btn">
+                <i class="fa fa-sign-out"></i> 导出
+              </button>
             </div>
           </div>
         </div>
@@ -129,7 +135,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             }, 800);
             return false;
         });
-            
+
         $("#add_btn").on("click",function(){
             layer.open({
                 content: "<%=basePath%>admin/empChangeView",
@@ -144,7 +150,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             });
             return false;
         });
-            
+
         $("#del_btn").on("click",function(){
             var checkStatus = table.checkStatus('userTable')
             ,checkData = checkStatus.data;
@@ -162,6 +168,31 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     handlerResult(data, deleteDone)
                 });
             });
+            return false;
+        });
+
+        $("#import_btn").on("click",function(){
+            var checkStatus = table.checkStatus('userTable')
+            ,checkData = checkStatus.data;
+            if (checkData.length === 0) {
+            	layer.msg('请选择数据');
+                return false;
+            }
+            layer.confirm('确定删除吗?', function (index) {
+                var reqBody = checkData.reduce(function(acc, cur) {
+                    acc.push(cur.id);
+                    return acc;
+                }, []);
+                ajaxJsonRequest("POST", '<%=basePath%>api/employee/delete',  JSON.stringify(reqBody), function (data) {
+                    layer.close(index);
+                    handlerResult(data, deleteDone)
+                });
+            });
+            return false;
+        });
+
+        $("#export_btn").on("click",function(){
+            window.location.href="<%=basePath%>admin/empView/excel/download";
             return false;
         });
 
@@ -204,6 +235,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
         function deleteDone(data) {
             parent.layer.msg("删除成功", {
+                icon : 6
+            });
+            table.reload('userTable', {});
+        }
+
+        function exportDone(data) {
+            parent.layer.msg("導出成功", {
                 icon : 6
             });
             table.reload('userTable', {});

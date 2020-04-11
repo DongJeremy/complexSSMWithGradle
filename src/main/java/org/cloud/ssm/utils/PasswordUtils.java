@@ -48,9 +48,9 @@ public class PasswordUtils {
         int tempint = (int) Math.ceil(temp);
         return tempint;
     }
-    
+
     private static DefaultPasswordService getPasswordService(String AlgorithmName, boolean setSalt) {
-    	DefaultHashService hashService = new DefaultHashService();
+        DefaultHashService hashService = new DefaultHashService();
         hashService.setHashIterations(50000); // 500000
         hashService.setHashAlgorithmName(AlgorithmName);
         hashService.setGeneratePublicSalt(setSalt);
@@ -63,9 +63,9 @@ public class PasswordUtils {
         DefaultPasswordService passwordService = getPasswordService("SHA-256", true);
         return passwordService.encryptPassword(plainString);
     }
-    
+
     public static boolean passwordsMatch(String plainString, String encryptedPassword) {
-    	DefaultPasswordService passwordService = getPasswordService("SHA-256", true);
+        DefaultPasswordService passwordService = getPasswordService("SHA-256", true);
         return passwordService.passwordsMatch(plainString, encryptedPassword);
     }
 
@@ -83,7 +83,7 @@ public class PasswordUtils {
         String encryptedPassword = passwordService.encryptPassword("password");
         System.out.println(encryptedPassword);
         System.out.println(createPassWord(32));
-        
+
         boolean b = passwordService.passwordsMatch("password1", encryptedPassword);
         System.out.println(b);
     }

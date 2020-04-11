@@ -15,18 +15,18 @@ import com.github.pagehelper.PageHelper;
 @Service
 public class EmployeeServiceImpl extends BaseServiceImpl<EmployeeMapper, Employee> implements IEmployeeService {
 
-	@Resource
+    @Resource
     private EmployeeMapper employeeMapper;
-	
-	@Override
-	public List<Employee> getAllByCondition(String username, String deptName, int pageNum, int pageSize) {
-		PageHelper.startPage(pageNum, pageSize);
-        return employeeMapper.selectAllByCondition(username, deptName);
-	}
 
-	@Override
-	public Long getCountByCondition(String username, String deptName) {
-		return employeeMapper.selectCountByCondition(username, deptName);
-	}
+    @Override
+    public List<Employee> getAllByCondition(String username, String deptName, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return employeeMapper.selectAllByCondition(username, deptName);
+    }
+
+    @Override
+    public Long getCountByCondition(String username, String deptName) {
+        return employeeMapper.selectCountByCondition(username, deptName);
+    }
 
 }

@@ -19,8 +19,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class CustomRealm extends AuthorizingRealm {
-	
-	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private IUserService userService;
@@ -48,7 +48,7 @@ public class CustomRealm extends AuthorizingRealm {
             return null;
         }
 
-        if (0==user.getStatus()) {
+        if (0 == user.getStatus()) {
             LOGGER.info("Account has been disabled explicitly due to being locked");
             return null;
         }

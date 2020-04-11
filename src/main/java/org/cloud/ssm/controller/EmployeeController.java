@@ -1,13 +1,17 @@
 package org.cloud.ssm.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.cloud.ssm.entity.Department;
 import org.cloud.ssm.entity.Employee;
-import org.cloud.ssm.entity.EmployeeVo;
 import org.cloud.ssm.service.IEmployeeService;
+import org.cloud.ssm.utils.ExcelUtils;
 import org.cloud.ssm.utils.PageResultBean;
 import org.cloud.ssm.utils.ResultBean;
+import org.cloud.ssm.vo.EmployeeVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @RestController
 @RequestMapping("/api/employee")
@@ -47,7 +53,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public @ResponseBody ResultBean addEmployee(@RequestBody EmployeeVo employeeVo) {
+    public @ResponseBody ResultBean addEmployee(@RequestBody EmployeeVO employeeVo) {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeVo, employee);
         Department department = new Department(employeeVo.getDepartment());
@@ -67,8 +73,20 @@ public class EmployeeController {
         return service.getById(employee.getId()).orElse(new Employee());
     }
 
+    @PostMapping("/import")
+    public @ResponseBody ResultBean importEmployee(HttpServletRequest request, @RequestBody EmployeeVO employeeVo) throws IOException, Exception {
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = multipartRequest.getFile("uploadExcel");
+        List<Employee> listObjects = ExcelUtils.importFromFile(file, Employee.class);
+        Department department = new Department(employeeVo.getDepartment());
+        //TODO
+//        employee.setDepartment(department);
+//        service.save(employee);
+        return ResultBean.success();
+    }
+
     @PutMapping
-    public @ResponseBody ResultBean updateEmployee(@RequestBody EmployeeVo employeeVo) {
+    public @ResponseBody ResultBean updateEmployee(@RequestBody EmployeeVO employeeVo) {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeVo, employee);
         Department department = new Department(employeeVo.getDepartment());

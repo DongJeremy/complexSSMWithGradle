@@ -85,8 +85,8 @@ CREATE TABLE `sys_users`  (
   `password` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `last_login_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
-  `create_time` datetime(0) DEFAULT NULL,
+  `last_login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
