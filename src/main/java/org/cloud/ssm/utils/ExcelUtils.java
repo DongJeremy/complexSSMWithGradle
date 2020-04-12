@@ -291,6 +291,8 @@ public class ExcelUtils<T> {
                 f.set(obj, Byte.parseByte(cell.getStringCellValue()));
             } else if (f.getType() == int.class || f.getType() == Integer.class) {
                 f.set(obj, Integer.parseInt(cell.getStringCellValue()));
+            } else if (f.getType() == long.class || f.getType() == Long.class) {
+                f.set(obj, Long.parseLong(cell.getStringCellValue()));
             } else if (f.getType() == Double.class || f.getType() == double.class) {
                 f.set(obj, Double.parseDouble(cell.getStringCellValue()));
             } else if (f.getType() == BigDecimal.class) {
@@ -335,6 +337,9 @@ public class ExcelUtils<T> {
         for (int i = 1; i < rows; i++) {
             // 获取excel行
             row = sheet.getRow(i);
+            if (null == row) {
+                continue;
+            }
             // 创建实体
             obj = clazz.getDeclaredConstructor().newInstance();
             for (Field f : fields) {

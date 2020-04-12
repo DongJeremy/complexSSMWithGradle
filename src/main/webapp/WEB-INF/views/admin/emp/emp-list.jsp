@@ -64,7 +64,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
               <button class="layui-btn open-popup" data-type="getCheckData" id="del_btn">
                 <i class="fa fa-trash"></i> 删除
               </button>
-              <button class="layui-btn open-popup" id="import_btn">
+              <button class="layui-btn" id="import_btn">
                 <i class="fa fa-sign-in"></i> 导入
               </button>
               <button class="layui-btn open-popup" id="export_btn">
@@ -91,10 +91,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   <script src="<%=basePath%>static/js/common.js"></script>
 
   <script>
-    layui.use(['table', 'element', 'form'], function () {
+    layui.use(['table', 'element', 'form', 'upload'], function () {
         var table = layui.table
-              , $ = layui.$
-           , form = layui.form;
+            , $ = layui.$
+            , upload = layui.upload
+            , form = layui.form;
 
         table.render({
             elem: '#user-table'
@@ -115,6 +116,24 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     , {title: '操作', fixed: 'right', align: 'center', toolbar: '#column-toolbar', width: "15%"}
                 ]
             ]
+        });
+
+        upload.render({
+            elem: '#import_btn' //绑定元素
+            ,url: '<%=basePath%>admin/empImport' //上传接口
+            ,accept: 'file'
+            ,done: function(res){
+                parent.layer.msg("导入成功", {
+                    icon : 6
+                });
+                table.reload('userTable', {});
+            }
+            ,error: function(){
+                parent.layer.msg("导入失敗", {
+                    icon : 6
+                });
+                table.reload('userTable', {});
+            }
         });
 
         $("#searchBtn").on("click",function(){
@@ -172,22 +191,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         });
 
         $("#import_btn").on("click",function(){
-            var checkStatus = table.checkStatus('userTable')
-            ,checkData = checkStatus.data;
-            if (checkData.length === 0) {
-            	layer.msg('请选择数据');
-                return false;
-            }
-            layer.confirm('确定删除吗?', function (index) {
-                var reqBody = checkData.reduce(function(acc, cur) {
-                    acc.push(cur.id);
-                    return acc;
-                }, []);
-                ajaxJsonRequest("POST", '<%=basePath%>api/employee/delete',  JSON.stringify(reqBody), function (data) {
-                    layer.close(index);
-                    handlerResult(data, deleteDone)
-                });
-            });
             return false;
         });
 

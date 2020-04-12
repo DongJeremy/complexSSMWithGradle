@@ -1,4 +1,4 @@
-package org.cloud.ssm.controller;
+package org.cloud.ssm.controller.page;
 
 import javax.annotation.Resource;
 

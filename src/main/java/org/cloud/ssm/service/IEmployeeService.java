@@ -9,4 +9,6 @@ public interface IEmployeeService extends BaseService<Employee> {
     List<Employee> getAllByCondition(String username, String deptName, int pageNum, int pageSize);
 
     Long getCountByCondition(String username, String deptName);
+    
+    Long batchSaveEmployee(List<Employee> list);
 }

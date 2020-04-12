@@ -6,6 +6,14 @@
   <configuration>
     <stop-on-errors>true</stop-on-errors>
     <date-format>yyyy-MM-dd</date-format>
-    <wildcard>true</wildcard>
+    <wildcard>false</wildcard>
   </configuration>
+  <mapping>
+    <class-a>org.cloud.ssm.vo.EmployeeVO</class-a>
+    <class-b>org.cloud.ssm.entity.Employee</class-b>
+    <field-exclude type="one-way"> 
+      <a>department</a> 
+      <b>department</b> 
+    </field-exclude> 
+  </mapping>
 </mappings>

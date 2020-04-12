@@ -112,8 +112,7 @@ dependencies {
 	// poi
 	implementation 'org.apache.poi:poi:3.17'
 	implementation 'org.apache.poi:poi-ooxml:3.17'
-	
-	
+
 	// dozer
 	implementation 'net.sf.dozer:dozer:5.5.1'
 	implementation 'net.sf.dozer:dozer-spring:5.5.1'

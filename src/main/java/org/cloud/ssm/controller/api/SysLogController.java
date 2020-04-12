@@ -1,4 +1,4 @@
-package org.cloud.ssm.controller;
+package org.cloud.ssm.controller.api;
 
 import java.util.List;
 
