@@ -53,7 +53,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="error-page-info">
       <h1>404</h1>
       <h1>${message}</h1>
-      <div class="error-page-info-desc">啊哦，你访问的页面不存在(⋟﹏⋞)<</div>
+      <div class="error-page-info-desc">啊哦，你访问的页面不存在(⋟﹏⋞)</div>
     </div>
   </div>
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>

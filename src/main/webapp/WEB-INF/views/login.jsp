@@ -24,7 +24,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="login-bg">
         <div class="cover"></div>
     </div>
-    <div class="login-content" th:th:classappend="${isCaptcha} ? 'captcha'">
+    <div class="login-content ${isCaptcha?'captcha':''}">
         <h1 class="login-box-title"><i class="fa fa-fw fa-user"></i>登录</h1>
         <form class="layui-form">
             <div class="layui-form-item">
@@ -37,11 +37,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 <input class="layui-input" type="password" name="password" id="password" placeholder="密码" 
                     lay-verify="required" lay-vertype="tips">
             </div>
-            <div th:if="${isCaptcha}" class="layui-form-item captcha-item">
+            <c:if test="${isCaptcha}">
+            <div class="layui-form-item captcha-item">
                 <label class="layui-icon layui-icon-vercode"></label>
                 <input class="layui-input" type="text" name="captcha" autocomplete="off" placeholder="验证码">
-                <img class="captcha-img" th:src="@{/captcha}" />
+                <img class="captcha-img" src="<%=basePath%>captcha" />
             </div>
+            </c:if>
             <div class="layui-form-item">
                 <input type="checkbox" name="rememberMe" title="记住我" lay-skin="primary">
                 <a class="layui-layout-right forget-password" href="javascript:alert('请联系超级管理员！')">忘记密码?</a>
@@ -72,9 +74,17 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         $(function () {
             layui.use(['form'], function () {
                 // 操作对象
-                var form = layui.form;
+                var form = layui.form
+                     , $ = layui.jquery;
+                $(document).on('click', '.captcha-img', function () {
+                    var src = this.src.split("?")[0];
+                    this.src = src + "?" + Math.random();
+                });
                 form.on('submit(login)', function (data) {
                     $.post('<%=basePath%>login', data.field, function (result) {
+                        if(result.code !== 200){
+                            $('.captcha-img').click();
+                        }
                         handlerResult(result, loginDone);
                     });
                     return false;

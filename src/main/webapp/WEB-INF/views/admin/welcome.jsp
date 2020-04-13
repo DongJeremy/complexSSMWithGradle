@@ -39,28 +39,28 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                   <ul class="layui-row layui-col-space10 layui-this">
                     <li class="layui-col-xs2"><a href="#" onclick="openTab('用户管理', '/user/index')" class="x-admin-backlog-body">
                       <h3>用户数</h3>
-                      <p><cite th:text="${userCount}"></cite></p>
+                      <p><cite>${userCount}</cite></p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="#" onclick="openTab('角色管理', '/role/index')" class="x-admin-backlog-body">
                       <h3>角色数</h3>
-                      <p><cite th:text="${roleCount}"></cite></p>
+                      <p><cite>${roleCount}</cite></p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="#" onclick="openTab('菜单管理', '/menu/index')" class="x-admin-backlog-body">
                       <h3>菜单数</h3>
-                      <p><cite th:text="${menuCount}"></cite></p>
+                      <p><cite>${menuCount}</cite></p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="#" onclick="openTab('登录日志', '/log/login/index')" class="x-admin-backlog-body">
                       <h3>登录日志</h3>
-                      <p><cite th:text="${loginLogCount}"></cite></p>
+                      <p><cite>${loginLogCount}</cite></p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="#" onclick="openTab('操作日志', '/log/sys/index')" class="x-admin-backlog-body">
                       <h3>操作日志</h3>
-                      <p><cite th:text="${sysLogCount}"></cite></p>
+                      <p><cite>${sysLogCount}</cite></p>
                     </a></li>
                     <li class="layui-col-xs2"><a href="#" onclick="openTab('system', '/systemInfo')" class="x-admin-backlog-body">
                         <h3>system</h3>
                         <p>
-                          <cite th:text="${userOnlineCount}"></cite>
+                          <cite>${userOnlineCount}</cite>
                         </p>
                     </a></li>
                   </ul>

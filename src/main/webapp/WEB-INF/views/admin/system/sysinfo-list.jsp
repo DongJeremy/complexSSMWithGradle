@@ -188,9 +188,10 @@
         </div>
       </div>
     </div>
-    <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-    <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-    <script src="<%=basePath%>static/js/zadmin.js"></script>
-    <script src="<%=basePath%>static/js/common.js"></script>
+  </div>
+  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
+  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
+  <script src="<%=basePath%>static/js/zadmin.js"></script>
+  <script src="<%=basePath%>static/js/common.js"></script>
 </body>
 </html>

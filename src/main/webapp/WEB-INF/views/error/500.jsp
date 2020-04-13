@@ -53,7 +53,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="error-page-info">
       <h1>500</h1>
       <h1>${message}</h1>
-      <div class="error-page-info-desc">诶呦，服务器开了个小差~<</div>
+      <div class="error-page-info-desc">诶呦，服务器开了个小差~</div>
     </div>
   </div>
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>

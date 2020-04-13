@@ -33,7 +33,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <!-- 导航栏 -->
     <div class="layui-header">
       <!-- logo 区域 -->
-      <a href="#" class="layui-logo">
+      <a href="admin#" class="layui-logo">
         <span class="layui-logo-mini">TIMO</span>
         <span class="layui-logo-lg">TIMO 后台</span>
       </a>

@@ -11,6 +11,10 @@
 
   <!-- 加载配置属性文件 -->
   <context:property-placeholder location="classpath:config.properties" />
+  
+  <bean id="projectProperties" class="org.cloud.ssm.utils.ProjectProperties">
+    <property name="captchaOpen" value="${project.captchaOpen}" />
+  </bean>
 
   <!-- 安全管理器 -->
   <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
