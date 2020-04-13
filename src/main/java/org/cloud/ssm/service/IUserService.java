@@ -3,9 +3,9 @@ package org.cloud.ssm.service;
 import java.util.List;
 import java.util.Set;
 
+import org.cloud.ssm.base.BaseService;
 import org.cloud.ssm.entity.User;
 import org.cloud.ssm.entity.vo.UserOnline;
-import org.cloud.ssm.utils.BaseService;
 
 public interface IUserService extends BaseService<User> {
 
@@ -67,4 +67,5 @@ public interface IUserService extends BaseService<User> {
 
     boolean updatePasswordByUserId(Long id, String password0, String password1);
 
+    void updateUserInfoByPrimaryKey(User user);
 }

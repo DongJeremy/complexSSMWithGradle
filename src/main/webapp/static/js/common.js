@@ -5,7 +5,7 @@ layui.config({
 
     // 渲染 tab 右键菜单.
     tabRightMenu.render({
-        filter: "lay-tab",
+        filter: "iframe-tabs",
         pintabIDs: ["home"],
         width: 110,
     });

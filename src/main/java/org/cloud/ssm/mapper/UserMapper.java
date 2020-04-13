@@ -1,8 +1,8 @@
 package org.cloud.ssm.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.cloud.ssm.base.BaseMapper;
 import org.cloud.ssm.entity.User;
-import org.cloud.ssm.utils.BaseMapper;
 
 public interface UserMapper extends BaseMapper<User> {
 
@@ -18,4 +18,5 @@ public interface UserMapper extends BaseMapper<User> {
 
     void updatePasswordByUserId(@Param("id") Long id, @Param("password") String encryptPassword);
 
+    void updateUserInfoByPrimaryKey(User user);
 }

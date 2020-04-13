@@ -25,7 +25,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.Row;
@@ -286,7 +285,7 @@ public class ExcelUtils<T> {
      */
     private static void setFieldValue(Object obj, Field f, Workbook wookbook, Cell cell) {
         try {
-            cell.setCellType(CellType.STRING);
+            //cell.setCellFormula(CellType.STRING);
             if (f.getType() == byte.class || f.getType() == Byte.class) {
                 f.set(obj, Byte.parseByte(cell.getStringCellValue()));
             } else if (f.getType() == int.class || f.getType() == Integer.class) {

@@ -1,4 +1,4 @@
-package org.cloud.ssm.utils;
+package org.cloud.ssm.sys.bean;
 
 import org.springframework.stereotype.Component;
 

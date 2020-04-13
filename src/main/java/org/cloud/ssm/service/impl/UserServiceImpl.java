@@ -12,6 +12,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
+import org.cloud.ssm.base.BaseServiceImpl;
 import org.cloud.ssm.entity.Role;
 import org.cloud.ssm.entity.RolePermission;
 import org.cloud.ssm.entity.User;
@@ -20,7 +21,6 @@ import org.cloud.ssm.entity.vo.UserOnline;
 import org.cloud.ssm.mapper.RoleMapper;
 import org.cloud.ssm.mapper.UserMapper;
 import org.cloud.ssm.service.IUserService;
-import org.cloud.ssm.utils.BaseServiceImpl;
 import org.cloud.ssm.utils.IPUtils;
 import org.cloud.ssm.utils.PasswordUtils;
 import org.springframework.stereotype.Service;
@@ -171,6 +171,11 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
         String encryptPassword = PasswordUtils.generatePassword(password1);
         userMapper.updatePasswordByUserId(id, encryptPassword);
         return true;
+    }
+
+    @Override
+    public void updateUserInfoByPrimaryKey(User user) {
+        userMapper.updateUserInfoByPrimaryKey(user);
     }
 
 }

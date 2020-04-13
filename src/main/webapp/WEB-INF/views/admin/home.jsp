@@ -16,7 +16,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="renderer" content="webkit" />
 <link rel="icon" type="image/x-icon" href="<%=basePath%>static/favicon.ico">
-<title>后台管理系统</title>
+<title>主页</title>
 <link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/zadmin.css" media="all">
 <link rel="stylesheet" href="<%=basePath%>static/css/common.css" media="all">

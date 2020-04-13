@@ -3,8 +3,8 @@ package org.cloud.ssm.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.cloud.ssm.base.BaseMapper;
 import org.cloud.ssm.entity.Employee;
-import org.cloud.ssm.utils.BaseMapper;
 
 public interface EmployeeMapper extends BaseMapper<Employee> {
 

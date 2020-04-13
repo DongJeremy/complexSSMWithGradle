@@ -9,10 +9,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.cloud.ssm.base.BaseServiceImpl;
 import org.cloud.ssm.entity.Employee;
 import org.cloud.ssm.mapper.EmployeeMapper;
 import org.cloud.ssm.service.IEmployeeService;
-import org.cloud.ssm.utils.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

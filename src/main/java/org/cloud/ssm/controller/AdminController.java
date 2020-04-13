@@ -3,12 +3,16 @@ package org.cloud.ssm.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.cloud.ssm.entity.Department;
+import org.cloud.ssm.entity.User;
 import org.cloud.ssm.service.IDepartmentService;
 import org.cloud.ssm.sys.annotation.OperationLog;
 import org.cloud.ssm.sys.info.Server;
+import org.cloud.ssm.utils.ShiroUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +27,8 @@ public class AdminController {
     private IDepartmentService departmentService;
 
     @OperationLog("访问我的桌面")
-    @GetMapping("/welcome")
+    @RequiresPermissions("index")
+    @GetMapping("/home")
     public String welcome(ModelMap model) {
         model.addAttribute("userCount", 2);
         model.addAttribute("roleCount", 2);
@@ -31,11 +36,12 @@ public class AdminController {
         model.addAttribute("loginLogCount", 51);
         model.addAttribute("sysLogCount", 478);
         model.addAttribute("userOnlineCount", 2);
-        return "admin/welcome";
+        return "admin/home";
     }
 
     @OperationLog("查看近七日登录统计图")
     @GetMapping("/weekLoginCount")
+    @RequiresPermissions("index")
     @ResponseBody
     public List<Integer> recentlyWeekLoginCount() {
         List<Integer> recentlyWeekLoginCount = new ArrayList<Integer>();
@@ -47,6 +53,17 @@ public class AdminController {
         recentlyWeekLoginCount.add(1);
         recentlyWeekLoginCount.add(13);
         return recentlyWeekLoginCount;
+    }
+
+    /**
+     * 跳转到个人信息页面
+     */
+    @GetMapping("/userInfo")
+    @RequiresPermissions("index")
+    public String toUserInfo(Model model){
+        User user = ShiroUtil.getSubject();
+        model.addAttribute("user", user);
+        return "admin/user/user-info";
     }
 
     @OperationLog("查看系统信息")

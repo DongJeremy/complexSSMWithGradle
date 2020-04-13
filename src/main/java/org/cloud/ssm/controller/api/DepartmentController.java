@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.cloud.ssm.entity.Department;
 import org.cloud.ssm.service.IDepartmentService;
-import org.cloud.ssm.utils.PageResultBean;
-import org.cloud.ssm.utils.ResultBean;
+import org.cloud.ssm.sys.bean.PageResultBean;
+import org.cloud.ssm.sys.bean.ResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

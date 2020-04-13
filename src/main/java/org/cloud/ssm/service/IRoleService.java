@@ -2,8 +2,8 @@ package org.cloud.ssm.service;
 
 import java.util.List;
 
+import org.cloud.ssm.base.BaseService;
 import org.cloud.ssm.entity.Role;
-import org.cloud.ssm.utils.BaseService;
 
 public interface IRoleService extends BaseService<Role> {
 

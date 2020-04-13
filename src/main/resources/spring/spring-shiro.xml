@@ -12,7 +12,7 @@
   <!-- 加载配置属性文件 -->
   <context:property-placeholder location="classpath:config.properties" />
   
-  <bean id="projectProperties" class="org.cloud.ssm.utils.ProjectProperties">
+  <bean id="projectProperties" class="org.cloud.ssm.sys.bean.ProjectProperties">
     <property name="captchaOpen" value="${project.captchaOpen}" />
   </bean>
 

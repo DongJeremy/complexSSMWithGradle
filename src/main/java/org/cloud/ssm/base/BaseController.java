@@ -1,4 +1,4 @@
-package org.cloud.ssm.utils;
+package org.cloud.ssm.base;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

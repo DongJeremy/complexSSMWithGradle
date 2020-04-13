@@ -15,7 +15,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="renderer" content="webkit" />
-<title>后台管理系统</title>
+<title>JLZMSYS管理系统</title>
 <link rel="icon" type="image/x-icon" href="<%=basePath%>static/favicon.ico">
 <link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css">
 <link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
@@ -34,8 +34,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="layui-header">
       <!-- logo 区域 -->
       <a href="admin#" class="layui-logo">
-        <span class="layui-logo-mini">TIMO</span>
-        <span class="layui-logo-lg">TIMO 后台</span>
+        <span class="layui-logo-mini">JLZMSYS</span>
+        <span class="layui-logo-lg">JLZMSYS 后台</span>
       </a>
       <a class="side-toggle layui-layout-left" href="#"> 
         <i class="layui-icon layui-icon-shrink-right"></i> 
@@ -53,11 +53,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
           </a>
         </li>
         <li class="layui-nav-item timo-nav-user">
-          <a class="timo-header-nickname">TIMO</a>
+          <a class="timo-header-nickname">JLZMSYS</a>
           <div class="layui-nav-child">
             <div class="timo-nav-child-box">
               <div>
-                <a class="open-popup" data-title="个人信息" data-url="" data-size="680,464">
+                <a class="open-popup" data-title="个人信息" data-url="<%=basePath%>admin/userInfo" data-size="680,464">
                   <!-- -->
                   <i class="fa fa-user-o"></i> 个人信息
                 </a>
@@ -90,7 +90,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <!-- 导航区域 -->
         <ul class="layui-nav layui-nav-tree" lay-filter="layui-nav-side">
           <li class="layui-nav-item layui-this">
-            <a lay-url="welcome"> 
+            <a lay-url="home"> 
               <i class="layui-icon layui-icon-home"></i>&emsp;<span class="layui-nav-title">主页</span>
             </a>
           </li>
@@ -103,8 +103,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             <dl class="layui-nav-child">
               <c:forEach items="${menu.children}" var="child">
               <dd>
-                <a lay-url="${child.url}" href="javascript:;"><span class="layui-nav-title">${child.menuName}</span>
-                </a>
+                <a lay-url="${child.url}" href="javascript:;"><span class="layui-nav-title">${child.menuName}</span></a>
               </dd>
               </c:forEach>
             </dl>
@@ -118,14 +117,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="layui-body layui-tab" lay-unauto lay-allowclose="true" lay-filter="iframe-tabs">
       <!-- 标签栏 -->
       <ul class="layui-tab-title">
-        <li lay-id="welcome" lay-url="welcome" class="layui-this">
+        <li lay-id="home" lay-url="home" class="layui-this">
           <i class="layui-icon layui-icon-home"></i> 主页  
         </li>
       </ul>
       <!-- 内容区域-->
       <div class="layui-tab-content">
         <div class="layui-tab-item layui-show">
-          <iframe src="admin/welcome" class="layui-layout-iframe" style="border: none;"></iframe>
+          <iframe src="admin/home" class="layui-layout-iframe" style="border: none;"></iframe>
         </div>
       </div> 
     </div>
@@ -143,6 +142,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   <script src="<%=basePath%>static/js/common.js"></script>
   <script src="<%=basePath%>static/js/zadmin.js"></script>
   <script src="<%=basePath%>static/js/dtree.js"></script>
+  <script src="<%=basePath%>static/js/tabRightMenu.js"></script>
   <script>
 	function logout() {
 		sessionStorage.removeItem("tabs");

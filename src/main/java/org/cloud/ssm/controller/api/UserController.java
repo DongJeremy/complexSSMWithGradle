@@ -4,12 +4,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.cloud.ssm.entity.User;
 import org.cloud.ssm.entity.vo.UserOnline;
 import org.cloud.ssm.service.IUserService;
 import org.cloud.ssm.sys.annotation.OperationLog;
-import org.cloud.ssm.utils.PageResultBean;
-import org.cloud.ssm.utils.ResultBean;
+import org.cloud.ssm.sys.bean.PageResultBean;
+import org.cloud.ssm.sys.bean.ResultBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -71,6 +72,18 @@ public class UserController {
     @ResponseBody
     public ResultBean updateUser(@RequestBody User user) {
         userService.save(user);
+        return ResultBean.success();
+    }
+
+    /**
+     * 保存修改个人信息
+     */
+    @PostMapping("/userInfo")
+    @RequiresPermissions("index")
+    @ResponseBody
+    public ResultBean userInfo(@RequestBody User user){
+        // 保存数据
+        userService.updateUserInfoByPrimaryKey(user);
         return ResultBean.success();
     }
 

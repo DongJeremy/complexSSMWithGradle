@@ -42,3 +42,23 @@ function ajaxFormRequest(method, url, formData, handleData) {
     });
     return false;
 }
+
+/* 提交表单数据 */
+$(document).on("click", ".ajax-submit", function (e) {
+    e.preventDefault();
+    var form = $(this).parents("form");
+    var url = form.attr("action");
+    var serializeArray = form.serializeArray();
+    $.post(url, serializeArray, function (result) {
+        if (result.data == null) {
+            result.data = 'submit[refresh]';
+        }
+        $.fn.Messager(result);
+    });
+});
+
+/* 关闭弹出层 */
+$(".close-popup").click(function (e) {
+    e.preventDefault();
+    parent.layer.close(window.parent.layerIndex);
+});
