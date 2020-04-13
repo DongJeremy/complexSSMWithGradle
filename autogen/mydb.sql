@@ -1,21 +1,58 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : 192.168.0.243
  Source Server Type    : MySQL
- Source Server Version : 50645
- Source Host           : localhost:3306
+ Source Server Version : 50564
+ Source Host           : 192.168.0.243:3306
  Source Schema         : mydb
 
  Target Server Type    : MySQL
- Target Server Version : 50645
+ Target Server Version : 50564
  File Encoding         : 65001
 
- Date: 10/04/2020 17:00:01
+ Date: 13/04/2020 18:57:42
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for kokyaku
+-- ----------------------------
+DROP TABLE IF EXISTS `kokyaku`;
+CREATE TABLE `kokyaku`  (
+  `kokyaku_cd` varchar(6) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `kokyaku_name` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_kana` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_addr` varchar(150) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_tel` varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_fax` varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_mail` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_ninzu` decimal(10, 0) DEFAULT NULL,
+  `kokyaku_president_name` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_shihon` decimal(10, 0) DEFAULT NULL,
+  `kokyaku_date` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_gyosyu` varchar(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kokyaku_naiyo` varchar(300) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `tanto_cd` varchar(6) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `create_date` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `apply_date` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `start_date` varchar(8) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
+  `kensu` decimal(10, 0) DEFAULT NULL,
+  `kokyaku_status` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '1',
+  PRIMARY KEY (`kokyaku_cd`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of kokyaku
+-- ----------------------------
+INSERT INTO `kokyaku` VALUES ('111001', '野村志郎科学', 'ノムラシロウカガク', '東京都中央区日本橋室町', '03-0001-0001', '03-0001-0002', 'soumu-00@n-kagaku.co.jp', 100, '野村志郎', 50000000, '20010101', '製造業', '化学薬品の製造', 'USR001', '20070101', '20070101', '20070105', 10, '3');
+INSERT INTO `kokyaku` VALUES ('111002', '野村五郎コンサルタント（株）', 'ノムラゴロウコンサルタントカブ', '東京都千代田区大手町', '03-0002-0002', '03-0002-0003', 'soumu-00@gn-consul.co.jp', 30, '野村五郎', 55000000, '20020101', '金融・保険業', '金融系業務コンサルティング', 'USR001', '20070102', '20070102', '20070105', 4, '3');
+INSERT INTO `kokyaku` VALUES ('111003', '株式会社野村六郎商事（株）', 'カブシキガイシャノムラロクロウショウジカブ', '東京都中央区日本橋本石町', '03-0003-0003', '03-0003-0004', 'soumu-00@n-company.co.jp', 150, '野村六郎', 60000000, '20010101', '卸売業', '幅広い商品・サービスを取り扱う総合商社', 'USR002', '20070103', '20070105', '20070105', 5, '3');
+INSERT INTO `kokyaku` VALUES ('111004', '野村太郎ソフト（株）', 'ノムラタロウソフトカブ', '東京都中野区東中野', '03-0004-0004', '03-0004-0005', 'soumu-00@soft-n.co.jp', 30, '野村太郎', 20000000, '20010101', 'IT', 'ソフトウェア開発、人材派遣、ITコンサルタント', 'USR001', '20070110', '20070112', '20070204', 4, '2');
+INSERT INTO `kokyaku` VALUES ('111005', '野村次郎コーヒー', 'ノムラジロウコーヒー', '東京都杉並区阿佐ヶ谷', '03-0005-0005', '03-0005-0006', 'soumu-00@nomura-j-coffee.jp', 40, '野村次郎', 15000000, '20020101', '飲食業', '高級コーヒー、高級洋菓子の販売', 'USR002', '20070120', '20070121', '20070204', 8, '2');
+INSERT INTO `kokyaku` VALUES ('111006', '野村三郎サービス（株）', 'ノムラサブロウサービスカブ', '東京都江東区清澄', '03-0006-0006', '03-0006-0007', 'soumu-00@3n-service.co.jp', 40, '野村三郎', 30000000, '20030101', 'サービス業', '人材派遣、人材紹介、就職・転職サポート', 'USR003', '20070130', '20070204', '20070204', 0, '1');
 
 -- ----------------------------
 -- Table structure for sys_permissions
@@ -72,8 +109,8 @@ CREATE TABLE `sys_roles_permissions`  (
 INSERT INTO `sys_roles_permissions` VALUES (1, 1);
 INSERT INTO `sys_roles_permissions` VALUES (1, 2);
 INSERT INTO `sys_roles_permissions` VALUES (1, 3);
-INSERT INTO `sys_roles_permissions` VALUES (2, 3);
 INSERT INTO `sys_roles_permissions` VALUES (1, 4);
+INSERT INTO `sys_roles_permissions` VALUES (2, 3);
 
 -- ----------------------------
 -- Table structure for sys_users
@@ -82,19 +119,23 @@ DROP TABLE IF EXISTS `sys_users`;
 CREATE TABLE `sys_users`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `nickname` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `sex` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `password` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `last_login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `create_time` datetime DEFAULT NULL,
+  `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_users
 -- ----------------------------
-INSERT INTO `sys_users` VALUES (1, 'admin', '$shiro1$SHA-256$50000$tkXJB+7mQLtPhAKjnw630g==$TAWyEVOKaFZu9289OG0hvx9/kZ/X5HWvZkc3YcnEmkE=', 1, 'admin@cloud.org', '2020-04-10 14:54:19', '2019-06-21 22:21:05');
-INSERT INTO `sys_users` VALUES (2, 'ddw', '$shiro1$SHA-256$50000$jssZTPmF7UIbpgvW9iHoIQ==$GzI5SSfPbHmDd9vmZhDa2Jf5ZirDm0do31rxEqacDuk=', 1, 'ddw@cloud.org', '2020-04-10 15:00:01', '2019-06-21 22:21:07');
+INSERT INTO `sys_users` VALUES (1, 'admin', 'admin', '男', '13588889854', '$shiro1$SHA-256$50000$tkXJB+7mQLtPhAKjnw630g==$TAWyEVOKaFZu9289OG0hvx9/kZ/X5HWvZkc3YcnEmkE=', 1, 'admin@cloud.org', '2020-04-13 17:00:29', '2019-06-21 22:21:05', '管理员');
+INSERT INTO `sys_users` VALUES (2, 'ddw', NULL, NULL, NULL, '$shiro1$SHA-256$50000$jssZTPmF7UIbpgvW9iHoIQ==$GzI5SSfPbHmDd9vmZhDa2Jf5ZirDm0do31rxEqacDuk=', 1, 'ddw@cloud.org', '2020-04-10 15:00:01', '2019-06-21 22:21:07', NULL);
 
 -- ----------------------------
 -- Table structure for sys_users_roles
@@ -151,7 +192,7 @@ CREATE TABLE `t_emp`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `t_emp_ibfk_1`(`department`) USING BTREE,
   CONSTRAINT `t_emp_ibfk_1` FOREIGN KEY (`department`) REFERENCES `t_dept` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of t_emp
@@ -191,6 +232,27 @@ INSERT INTO `t_emp` VALUES (33, '石秀', '大连', 23, 1, 4000, '13888883345');
 INSERT INTO `t_emp` VALUES (34, '解珍', '大连', 25, 2, 2000, '13888883343');
 INSERT INTO `t_emp` VALUES (35, '解宝', '大连', 24, 5, 3000, '13888883348');
 INSERT INTO `t_emp` VALUES (36, '燕青', '大连', 24, 3, 3000, '13888883348');
+INSERT INTO `t_emp` VALUES (37, '宋江', '吉林', 43, 1, 4000, '13888883345');
+INSERT INTO `t_emp` VALUES (38, '卢俊义', '吉林', 42, 1, 2000, '13888883343');
+INSERT INTO `t_emp` VALUES (39, '吴用', '吉林', 41, 1, 3000, '13888883348');
+INSERT INTO `t_emp` VALUES (40, '公孙胜', '北京', 40, 1, 4000, '13888883345');
+INSERT INTO `t_emp` VALUES (41, '关胜', '北京', 39, 1, 2000, '13888883343');
+INSERT INTO `t_emp` VALUES (42, '林冲', '北京', 38, 1, 3000, '13888883348');
+INSERT INTO `t_emp` VALUES (43, '秦明', '北京', 34, 1, 4000, '13888883345');
+INSERT INTO `t_emp` VALUES (44, '呼延灼', '上海', 25, 1, 2000, '13888883343');
+INSERT INTO `t_emp` VALUES (45, '花荣', '上海', 24, 1, 3000, '13888883348');
+INSERT INTO `t_emp` VALUES (46, 'sdafasf', 'asdfasf', 12, 1, 1222, '12312312123');
+INSERT INTO `t_emp` VALUES (47, '林彪', '北京', 23, 2, 100000, '18922239948');
+INSERT INTO `t_emp` VALUES (48, '宋江', '吉林', 43, 1, 4000, '13888883345');
+INSERT INTO `t_emp` VALUES (49, '卢俊义', '吉林', 42, 2, 2000, '13888883343');
+INSERT INTO `t_emp` VALUES (50, '林彪', '北京', 23, 2, 100000, '18922239948');
+INSERT INTO `t_emp` VALUES (51, '宋江', '吉林', 43, 1, 4000, '13888883345');
+INSERT INTO `t_emp` VALUES (52, '卢俊义', '吉林', 42, 2, 2000, '13888883343');
+INSERT INTO `t_emp` VALUES (53, '林彪', '北京', 23, 2, 100000, '18922239948');
+INSERT INTO `t_emp` VALUES (54, 'tom', 'us', 22, 3, 2000, '12312344422');
+INSERT INTO `t_emp` VALUES (55, '宋江', '吉林', 43, 1, 4000, '13888883345');
+INSERT INTO `t_emp` VALUES (56, '卢俊义', '吉林', 42, 2, 2000, '13888883343');
+INSERT INTO `t_emp` VALUES (57, '林彪', '北京', 23, 2, 100000, '18922239948');
 
 -- ----------------------------
 -- Table structure for t_employee
@@ -248,8 +310,8 @@ CREATE TABLE `t_sys_log`  (
   `method` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '请求方法',
   `params` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '请求参数',
   `ip` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT 'IP',
-  `create_time` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 427 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '操作日志表' ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;
