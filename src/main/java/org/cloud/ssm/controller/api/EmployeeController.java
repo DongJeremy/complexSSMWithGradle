@@ -2,15 +2,14 @@ package org.cloud.ssm.controller.api;
 
 import java.util.List;
 
-import org.cloud.ssm.entity.Department;
 import org.cloud.ssm.entity.Employee;
+import org.cloud.ssm.entity.vo.EmployeeVO;
 import org.cloud.ssm.service.IEmployeeService;
 import org.cloud.ssm.utils.PageResultBean;
 import org.cloud.ssm.utils.ResultBean;
-import org.cloud.ssm.vo.EmployeeVO;
 import org.dozer.Mapper;
-//import org.dozer.Mapper;
-import org.springframework.beans.BeanUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private Mapper mapper ;
@@ -54,15 +55,18 @@ public class EmployeeController {
     @PostMapping
     public @ResponseBody ResultBean addEmployee(@RequestBody EmployeeVO employeeVo) {
         Employee employee = mapper.map(employeeVo, Employee.class);
-        //Department department = new Department(employeeVo.getDepartment());
-        //employee.setDepartment(department);
-        service.save(employee);
-        return ResultBean.success();
+        long effectRow = service.save(employee);
+        if (effectRow > 0) {
+            logger.info("add employee successful.");
+            return ResultBean.success();
+        }
+        return ResultBean.error("add employee fail.");
     }
 
     @DeleteMapping("/{id}")
     public @ResponseBody ResultBean deleteEmployee(@PathVariable Long id) {
         service.deleteById(id);
+        logger.info("delete employee successful.");
         return ResultBean.success();
     }
 
@@ -73,12 +77,13 @@ public class EmployeeController {
 
     @PutMapping
     public @ResponseBody ResultBean updateEmployee(@RequestBody EmployeeVO employeeVo) {
-        Employee employee = new Employee();
-        BeanUtils.copyProperties(employeeVo, employee);
-        Department department = new Department(employeeVo.getDepartment());
-        employee.setDepartment(department);
-        service.save(employee);
-        return ResultBean.success();
+        Employee employee = mapper.map(employeeVo, Employee.class);
+        long effectRow = service.save(employee);
+        if (effectRow > 0) {
+            logger.info("update employee successful.");
+            return ResultBean.success();
+        }
+        return ResultBean.error("update employee fail.");
     }
 
     @PostMapping("delete")

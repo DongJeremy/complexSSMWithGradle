@@ -5,11 +5,13 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.cloud.ssm.entity.User;
+import org.cloud.ssm.entity.vo.UserOnline;
 import org.cloud.ssm.service.IUserService;
 import org.cloud.ssm.sys.annotation.OperationLog;
 import org.cloud.ssm.utils.PageResultBean;
 import org.cloud.ssm.utils.ResultBean;
-import org.cloud.ssm.vo.UserOnline;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Resource
     private IUserService userService;
@@ -82,6 +86,7 @@ public class UserController {
     @PostMapping("/{id}/disable")
     @ResponseBody
     public ResultBean disable(@PathVariable("id") Long id) {
+        logger.info("delete user.");
         return ResultBean.success(userService.disableUserByID(id));
     }
 

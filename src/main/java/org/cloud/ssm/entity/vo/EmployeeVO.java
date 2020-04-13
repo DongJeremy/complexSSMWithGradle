@@ -1,16 +1,32 @@
-package org.cloud.ssm.vo;
+package org.cloud.ssm.entity.vo;
 
 import java.io.Serializable;
+
+import org.cloud.ssm.sys.annotation.ExcelInfo;
 
 public class EmployeeVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @ExcelInfo(columnIndex = 0, columnName = "序号")
     private Long id;
+
+    @ExcelInfo(columnIndex = 1, columnName = "用户名")
     private String name;
+
+    @ExcelInfo(columnIndex = 2, columnName = "地址")
     private String address;
+
+    @ExcelInfo(columnIndex = 3, columnName = "年龄")
     private Integer age;
+
+    @ExcelInfo(columnIndex = 6, columnName = "部门")
     private Long department;
+
+    @ExcelInfo(columnIndex = 5, columnName = "工资")
     private Integer salary;
+
+    @ExcelInfo(columnIndex = 4, columnName = "手机")
     private String tel;
 
     public EmployeeVO() {

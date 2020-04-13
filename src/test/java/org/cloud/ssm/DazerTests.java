@@ -1,7 +1,7 @@
 package org.cloud.ssm;
 
-import org.cloud.ssm.model.User;
-import org.cloud.ssm.model.UserVO;
+import org.cloud.ssm.entity.Employee;
+import org.cloud.ssm.entity.vo.EmployeeVO;
 import org.dozer.Mapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,12 +18,9 @@ public class DazerTests {
 	
 	@Test
 	public void test() {
-		User u = new User();
-		u.setId(2);
-		u.setName("test");
-		u.setPassword("password");
-		UserVO v = mapper.map(u, UserVO.class);
-		System.out.println(v);
+		EmployeeVO employeeVO = new EmployeeVO(10L, "david", "jilin", 12, 2L, 1222, "138123432");
+		Employee e = mapper.map(employeeVO, Employee.class);
+		System.out.println(e.getDepartment().getId());
 	}
 
 }

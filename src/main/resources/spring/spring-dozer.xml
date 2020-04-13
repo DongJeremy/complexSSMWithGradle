@@ -8,7 +8,7 @@
   <bean id="mapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
     <property name="mappingFiles">
       <list>
-        <value>classpath*:dozerBeanMapping.xml</value>
+        <value>classpath:spring/dozerBeanMapping.xml</value>
       </list>
     </property>
   </bean>

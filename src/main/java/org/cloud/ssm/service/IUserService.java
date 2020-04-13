@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.cloud.ssm.entity.User;
+import org.cloud.ssm.entity.vo.UserOnline;
 import org.cloud.ssm.utils.BaseService;
-import org.cloud.ssm.vo.UserOnline;
 
 public interface IUserService extends BaseService<User> {
 

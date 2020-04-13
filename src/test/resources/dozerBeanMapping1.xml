@@ -8,4 +8,12 @@
     <date-format>yyyy-MM-dd</date-format>
     <wildcard>true</wildcard>
   </configuration>
+  <mapping>
+    <class-a>org.cloud.ssm.vo.EmployeeVO</class-a>
+    <class-b>org.cloud.ssm.entity.Employee</class-b>
+    <field custom-converter="org.cloud.ssm.convert.DepartmentConverter">
+        <a>department</a>
+        <b>department</b>
+    </field>
+  </mapping>
 </mappings>

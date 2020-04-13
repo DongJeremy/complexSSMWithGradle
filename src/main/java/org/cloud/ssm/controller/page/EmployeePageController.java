@@ -7,11 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.cloud.ssm.entity.Employee;
+import org.cloud.ssm.entity.vo.EmployeeVO;
 import org.cloud.ssm.service.IDepartmentService;
 import org.cloud.ssm.service.IEmployeeService;
 import org.cloud.ssm.sys.annotation.OperationLog;
 import org.cloud.ssm.utils.ExcelUtils;
+import org.cloud.ssm.utils.MapperUtils;
 import org.cloud.ssm.utils.ResultBean;
+import org.dozer.Mapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,6 +31,11 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 @RequestMapping("/admin")
 public class EmployeePageController {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private Mapper mapper ;
 
     @Autowired
     private IEmployeeService employeeService;
@@ -56,19 +66,24 @@ public class EmployeePageController {
     @GetMapping("/empView/excel/download")
     public void empViewDownload(HttpServletResponse response) throws IOException {
         String excelFileName = "employee";
-        List<Employee> list = employeeService.getAll();
-        ExcelUtils.exportToFile(list, excelFileName, response);
+        final List<Employee> list = employeeService.getAll();
+        List<EmployeeVO> voList = MapperUtils.map(mapper, list, EmployeeVO.class);
+        logger.info("download excel file to local.");
+        ExcelUtils.exportToFile(voList, excelFileName, response);
     }
 
     @PostMapping("/empImport")
     public @ResponseBody ResultBean importEmployee(HttpServletRequest request) throws IOException, Exception {
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
         MultipartFile file = multipartRequest.getFile("file");
-        List<Employee> listObjects = ExcelUtils.importFromFile(file, Employee.class);
-        long ret = employeeService.batchSaveEmployee(listObjects);
-        if (ret == 1) {
+        final List<EmployeeVO> listObjects = ExcelUtils.importFromFile(file, EmployeeVO.class);
+        List<Employee> employeeList = MapperUtils.map(mapper, listObjects, Employee.class);
+        long ret = employeeService.batchSaveEmployee(employeeList);
+        if (ret == 1L) {
+            logger.info("upload excel file successful.");
             return ResultBean.success();
         }
+        logger.error("upload excel file fail.");
         return ResultBean.error("import error");
     }
 }

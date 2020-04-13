@@ -10,8 +10,9 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.cloud.ssm.sys.annotation.CsrfToken;
-import org.cloud.ssm.utils.BaseController;
 import org.cloud.ssm.utils.ResultBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class LoginController extends BaseController {
+public class LoginController {
+
+    private Logger logger = LoggerFactory.getLogger(getClass());
     /**
      * GET 登录
      * 

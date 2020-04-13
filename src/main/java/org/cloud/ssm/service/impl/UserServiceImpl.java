@@ -16,13 +16,13 @@ import org.cloud.ssm.entity.Role;
 import org.cloud.ssm.entity.RolePermission;
 import org.cloud.ssm.entity.User;
 import org.cloud.ssm.entity.UserRole;
+import org.cloud.ssm.entity.vo.UserOnline;
 import org.cloud.ssm.mapper.RoleMapper;
 import org.cloud.ssm.mapper.UserMapper;
 import org.cloud.ssm.service.IUserService;
 import org.cloud.ssm.utils.BaseServiceImpl;
 import org.cloud.ssm.utils.IPUtils;
 import org.cloud.ssm.utils.PasswordUtils;
-import org.cloud.ssm.vo.UserOnline;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;

@@ -1,4 +1,4 @@
-package org.cloud.ssm.vo;
+package org.cloud.ssm.entity.vo;
 
 import java.io.Serializable;
 import java.util.Date;
