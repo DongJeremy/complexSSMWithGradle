@@ -1,4 +1,4 @@
-package org.cloud.ssm.utils;
+package org.cloud.ssm.common.utils;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;

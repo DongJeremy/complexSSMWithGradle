@@ -1,4 +1,4 @@
-package org.cloud.ssm.sys.security;
+package org.cloud.ssm.common.security;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

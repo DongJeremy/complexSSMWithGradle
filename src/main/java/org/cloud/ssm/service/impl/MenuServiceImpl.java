@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.cloud.ssm.base.BaseServiceImpl;
+import org.cloud.ssm.common.base.BaseServiceImpl;
 import org.cloud.ssm.entity.Menu;
 import org.cloud.ssm.mapper.MenuMapper;
 import org.cloud.ssm.service.IMenuService;

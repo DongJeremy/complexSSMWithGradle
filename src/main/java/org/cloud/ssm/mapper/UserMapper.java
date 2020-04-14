@@ -1,7 +1,7 @@
 package org.cloud.ssm.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.cloud.ssm.base.BaseMapper;
+import org.cloud.ssm.common.base.BaseMapper;
 import org.cloud.ssm.entity.User;
 
 public interface UserMapper extends BaseMapper<User> {

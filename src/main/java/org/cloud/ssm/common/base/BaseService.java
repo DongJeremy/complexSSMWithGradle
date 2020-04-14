@@ -1,4 +1,4 @@
-package org.cloud.ssm.base;
+package org.cloud.ssm.common.base;
 
 import java.util.List;
 import java.util.Optional;

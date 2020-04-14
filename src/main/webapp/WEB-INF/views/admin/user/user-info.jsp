@@ -30,7 +30,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <ul class="detail-info">
         <li>账号：<span>${user.username}</span></li>
         <li>昵称：<span>${user.nickname}</span></li>
-        <li>性别：<span>${user.sex}</span></li>
+        <li>性别：<span>${user.sex == 1?'男':'女'}</span></li>
         <li>电话：<span>${user.phone}</span></li>
         <li>邮箱：<span>${user.email}</span></li>
       </ul>

@@ -2,11 +2,11 @@ package org.cloud.ssm.controller.api;
 
 import java.util.List;
 
+import org.cloud.ssm.common.annotation.OperationLog;
+import org.cloud.ssm.common.bean.PageResultBean;
+import org.cloud.ssm.common.bean.ResultBean;
 import org.cloud.ssm.entity.Department;
 import org.cloud.ssm.service.IDepartmentService;
-import org.cloud.ssm.sys.annotation.OperationLog;
-import org.cloud.ssm.sys.bean.PageResultBean;
-import org.cloud.ssm.sys.bean.ResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

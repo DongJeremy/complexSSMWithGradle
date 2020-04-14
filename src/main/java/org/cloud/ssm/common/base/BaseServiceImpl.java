@@ -1,4 +1,4 @@
-package org.cloud.ssm.base;
+package org.cloud.ssm.common.base;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

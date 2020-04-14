@@ -2,7 +2,7 @@ package org.cloud.ssm.entity.vo;
 
 import java.io.Serializable;
 
-import org.cloud.ssm.sys.annotation.ExcelInfo;
+import org.cloud.ssm.common.annotation.ExcelInfo;
 
 public class EmployeeVO implements Serializable {
 

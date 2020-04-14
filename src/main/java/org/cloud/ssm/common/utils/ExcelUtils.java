@@ -1,4 +1,4 @@
-package org.cloud.ssm.utils;
+package org.cloud.ssm.common.utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -31,7 +31,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.cloud.ssm.sys.annotation.ExcelInfo;
+import org.cloud.ssm.common.annotation.ExcelInfo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ExcelUtils<T> {

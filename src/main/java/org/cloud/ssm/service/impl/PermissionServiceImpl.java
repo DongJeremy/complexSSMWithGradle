@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.cloud.ssm.base.BaseServiceImpl;
+import org.cloud.ssm.common.base.BaseServiceImpl;
 import org.cloud.ssm.entity.Permission;
 import org.cloud.ssm.mapper.PermissionMapper;
 import org.cloud.ssm.service.IPermissionService;

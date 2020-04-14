@@ -1,6 +1,6 @@
 package org.cloud.ssm.mapper;
 
-import org.cloud.ssm.base.BaseMapper;
+import org.cloud.ssm.common.base.BaseMapper;
 import org.cloud.ssm.entity.Role;
 
 public interface RoleMapper extends BaseMapper<Role> {

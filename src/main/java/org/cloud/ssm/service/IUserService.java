@@ -3,7 +3,7 @@ package org.cloud.ssm.service;
 import java.util.List;
 import java.util.Set;
 
-import org.cloud.ssm.base.BaseService;
+import org.cloud.ssm.common.base.BaseService;
 import org.cloud.ssm.entity.User;
 import org.cloud.ssm.entity.vo.UserOnline;
 

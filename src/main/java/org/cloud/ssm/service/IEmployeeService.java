@@ -2,7 +2,7 @@ package org.cloud.ssm.service;
 
 import java.util.List;
 
-import org.cloud.ssm.base.BaseService;
+import org.cloud.ssm.common.base.BaseService;
 import org.cloud.ssm.entity.Employee;
 
 public interface IEmployeeService extends BaseService<Employee> {

@@ -51,7 +51,7 @@
 
   <aop:aspectj-autoproxy proxy-target-class="true"/>
 
-  <bean id="OperationLog" class="org.cloud.ssm.sys.aop.OperationLogAspect" />
+  <bean id="operationLog" class="org.cloud.ssm.common.aop.OperationLogAspect" />
 
   <mvc:resources mapping="/webjars/**" location="/webjars/">
     <mvc:cache-control cache-public="true" max-age="2592000" />

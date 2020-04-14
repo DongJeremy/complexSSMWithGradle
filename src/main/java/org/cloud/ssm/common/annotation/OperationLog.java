@@ -1,4 +1,4 @@
-package org.cloud.ssm.sys.annotation;
+package org.cloud.ssm.common.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -4,11 +4,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.cloud.ssm.common.annotation.OperationLog;
+import org.cloud.ssm.common.bean.PageResultBean;
+import org.cloud.ssm.common.bean.ResultBean;
 import org.cloud.ssm.entity.SysLog;
 import org.cloud.ssm.service.ISysLogService;
-import org.cloud.ssm.sys.annotation.OperationLog;
-import org.cloud.ssm.sys.bean.PageResultBean;
-import org.cloud.ssm.sys.bean.ResultBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
 package org.cloud.ssm.sys.info;
 
-import org.cloud.ssm.utils.Arith;
+import org.cloud.ssm.common.utils.Arith;
 
 public class Mem {
     /**

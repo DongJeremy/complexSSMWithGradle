@@ -1,4 +1,4 @@
-package org.cloud.ssm.sys.security;
+package org.cloud.ssm.common.security;
 
 import java.io.Serializable;
 import java.util.Arrays;

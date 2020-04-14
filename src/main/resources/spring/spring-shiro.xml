@@ -12,7 +12,7 @@
   <!-- 加载配置属性文件 -->
   <context:property-placeholder location="classpath:config.properties" />
   
-  <bean id="projectProperties" class="org.cloud.ssm.sys.bean.ProjectProperties">
+  <bean id="projectProperties" class="org.cloud.ssm.common.bean.ProjectProperties">
     <property name="captchaOpen" value="${project.captchaOpen}" />
   </bean>
 
@@ -57,7 +57,7 @@
   </bean>
 
   <!-- Realm实现 -->
-  <bean id="userRealm" class="org.cloud.ssm.sys.security.CustomRealm">
+  <bean id="userRealm" class="org.cloud.ssm.common.security.CustomRealm">
     <constructor-arg name="cacheManager" ref="cacheManager" />
     <constructor-arg name="matcher" ref="credentialsMatcher" />
     <property name="authenticationCachingEnabled" value="true" />

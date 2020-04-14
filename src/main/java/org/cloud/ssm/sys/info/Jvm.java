@@ -2,8 +2,8 @@ package org.cloud.ssm.sys.info;
 
 import java.lang.management.ManagementFactory;
 
-import org.cloud.ssm.utils.Arith;
-import org.cloud.ssm.utils.DateUtils;
+import org.cloud.ssm.common.utils.Arith;
+import org.cloud.ssm.common.utils.DateUtils;
 
 public class Jvm {
     /**

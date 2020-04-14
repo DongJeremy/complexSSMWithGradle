@@ -1,6 +1,6 @@
 package org.cloud.ssm.service.impl;
 
-import org.cloud.ssm.base.BaseServiceImpl;
+import org.cloud.ssm.common.base.BaseServiceImpl;
 import org.cloud.ssm.entity.Department;
 import org.cloud.ssm.mapper.DepartmentMapper;
 import org.cloud.ssm.service.IDepartmentService;

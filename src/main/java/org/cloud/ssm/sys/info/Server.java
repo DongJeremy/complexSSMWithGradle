@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
-import org.cloud.ssm.utils.Arith;
-import org.cloud.ssm.utils.IPUtils;
+import org.cloud.ssm.common.utils.Arith;
+import org.cloud.ssm.common.utils.IPUtils;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;

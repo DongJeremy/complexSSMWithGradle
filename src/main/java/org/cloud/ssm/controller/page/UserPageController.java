@@ -1,9 +1,9 @@
 package org.cloud.ssm.controller.page;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.cloud.ssm.common.utils.ShiroUtil;
 import org.cloud.ssm.entity.User;
 import org.cloud.ssm.service.IUserService;
-import org.cloud.ssm.utils.ShiroUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -118,7 +118,7 @@
 
   <select id="selectUserInfoByUsername" resultMap="userInfoMap">
     SELECT
-      id, email, nickname, sex, phone, remark
+      id, username, email, nickname, sex, phone, remark
     FROM `sys_users`
     <where>
       username=#{username}

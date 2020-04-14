@@ -2,11 +2,11 @@ package org.cloud.ssm.controller.api;
 
 import java.util.List;
 
+import org.cloud.ssm.common.bean.PageResultBean;
+import org.cloud.ssm.common.bean.ResultBean;
 import org.cloud.ssm.entity.Employee;
 import org.cloud.ssm.entity.vo.EmployeeVO;
 import org.cloud.ssm.service.IEmployeeService;
-import org.cloud.ssm.sys.bean.PageResultBean;
-import org.cloud.ssm.sys.bean.ResultBean;
 import org.dozer.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

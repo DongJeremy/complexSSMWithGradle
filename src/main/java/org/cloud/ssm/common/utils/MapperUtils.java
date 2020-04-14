@@ -1,4 +1,4 @@
-package org.cloud.ssm.utils;
+package org.cloud.ssm.common.utils;
 
 import java.util.ArrayList;
 import java.util.List;

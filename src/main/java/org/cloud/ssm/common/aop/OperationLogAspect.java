@@ -1,4 +1,4 @@
-package org.cloud.ssm.sys.aop;
+package org.cloud.ssm.common.aop;
 
 import java.lang.reflect.Method;
 
@@ -10,11 +10,11 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.cloud.ssm.common.annotation.OperationLog;
+import org.cloud.ssm.common.utils.IPUtils;
 import org.cloud.ssm.entity.SysLog;
 import org.cloud.ssm.entity.User;
 import org.cloud.ssm.mapper.SysLogMapper;
-import org.cloud.ssm.sys.annotation.OperationLog;
-import org.cloud.ssm.utils.IPUtils;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +28,7 @@ public class OperationLogAspect {
     /**
      * 定义切入点，切入点为org.cloud.common.annotation.OperationLog下的所有函数
      */
-    @Pointcut("@annotation(org.cloud.ssm.sys.annotation.OperationLog)")
+    @Pointcut("@annotation(org.cloud.ssm.common.annotation.OperationLog)")
     public void pointcut() {
     }
 
