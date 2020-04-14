@@ -68,4 +68,6 @@ public interface IUserService extends BaseService<User> {
     boolean updatePasswordByUserId(Long id, String password0, String password1);
 
     void updateUserInfoByPrimaryKey(User user);
+
+    User findUserInfoByUsername(String username);
 }

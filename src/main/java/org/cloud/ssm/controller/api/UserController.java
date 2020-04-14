@@ -113,8 +113,8 @@ public class UserController {
     @OperationLog("重置密码")
     @PostMapping("/{id}/reset")
     @ResponseBody
-    public ResultBean resetPassword(@PathVariable("id") Long id, String password0, String password1) {
-        boolean resetPass = userService.updatePasswordByUserId(id, password0, password1);
+    public ResultBean resetPassword(@PathVariable("id") Long id, String original, String password) {
+        boolean resetPass = userService.updatePasswordByUserId(id, original, password);
         if (!resetPass) {
             return ResultBean.error("原密码错误，重置密码失败");
         }

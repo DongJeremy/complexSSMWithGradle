@@ -26,8 +26,16 @@ public class UserPageController {
     @RequiresPermissions("index")
     public String toUserInfo(Model model) {
         User user = ShiroUtil.getSubject();
-        model.addAttribute("user", userService.getById(user.getId()));
+        model.addAttribute("user", userService.findUserInfoByUsername(user.getUsername()));
         return "admin/user/user-info";
+    }
+
+    @GetMapping("/editpass")
+    @RequiresPermissions("index")
+    public String editPassword(ModelMap model) {
+        User user = ShiroUtil.getSubject();
+        model.addAttribute("id", user.getId());
+        return "admin/user/edit-passwd";
     }
 
     @GetMapping("/userOnline")

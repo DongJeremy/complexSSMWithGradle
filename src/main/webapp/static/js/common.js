@@ -147,3 +147,9 @@ function uuid() {
     var uuid = s.join("");
     return uuid;
 }
+
+/* 关闭弹出层 */
+$(".close-popup").click(function (e) {
+    e.preventDefault();
+    parent.layer.close(window.parent.layerIndex);
+});

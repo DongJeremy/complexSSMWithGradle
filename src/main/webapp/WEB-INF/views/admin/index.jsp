@@ -63,7 +63,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 </a>
               </div>
               <div>
-                <a class="open-popup" data-title="修改密码" data-url="" data-size="456,296">
+                <a class="open-popup" data-title="修改密码" data-url="<%=basePath%>admin/editpass" data-size="456,296">
                   <!-- -->
                   <i class="fa fa-lock" style="font-size: 17px; width: 12px;"></i>修改密码
                 </a>

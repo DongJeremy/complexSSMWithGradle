@@ -178,4 +178,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserMapper, User> implement
         userMapper.updateUserInfoByPrimaryKey(user);
     }
 
+    @Override
+    public User findUserInfoByUsername(String username) {
+        return userMapper.selectUserInfoByUsername(username);
+    }
+
 }

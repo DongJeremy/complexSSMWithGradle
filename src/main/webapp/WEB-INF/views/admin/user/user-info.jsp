@@ -58,12 +58,12 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <div class="layui-form-item">
         <label class="layui-form-label">选择性别</label>
         <div class="layui-input-inline">
-          <input type="radio" name="sex" value="1" title="男" checked>
+          <input type="radio" name="sex" value="1" title="男" ${user.sex == 1?'checked':''}>
           <div class="layui-unselect layui-form-radio layui-form-radioed">
             <i class="layui-anim layui-icon"></i>
             <div>男</div>
           </div>
-          <input type="radio" name="sex" value="2" title="女" th:checked="${user.sex} eq 2">
+          <input type="radio" name="sex" value="2" title="女" ${user.sex == 2?'checked':''}>
           <div class="layui-unselect layui-form-radio">
             <i class="layui-anim layui-icon"></i>
             <div>女</div>
@@ -86,7 +86,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
   <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
   <script src="<%=basePath%>static/js/common.js"></script>
-  <script src="<%=basePath%>static/js/custom.js"></script>
 
   <script>
   layui.use(['jquery', 'form', 'layer'], function () {
