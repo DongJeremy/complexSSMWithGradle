@@ -81,7 +81,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="layui-side layui-bg-black">
       <div class="layui-side-scroll">
         <div class="layui-side-user">
-          <img class="layui-side-user-avatar open-popup" data-size="680,464" src="<%=basePath%>static/images/security.png" alt="logo" />
+          <img class="layui-side-user-avatar open-popup" data-size="680,464" src="<%=basePath%>static/images/logo.png" alt="logo" />
           <div>
             <p class="layui-side-user-name">超级管理员</p>
             <p class="layui-side-user-designation">在线</p>

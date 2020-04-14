@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.cloud.ssm.entity.Department;
 import org.cloud.ssm.service.IDepartmentService;
+import org.cloud.ssm.sys.annotation.OperationLog;
 import org.cloud.ssm.sys.bean.PageResultBean;
 import org.cloud.ssm.sys.bean.ResultBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +35,14 @@ public class DepartmentController {
         return new PageResultBean<Department>(count, depts);
     }
 
+    @OperationLog("添加部门")
     @PostMapping
     public @ResponseBody ResultBean addDepartment(@RequestBody Department department) {
         service.save(department);
         return ResultBean.success();
     }
 
+    @OperationLog("删除部门")
     @DeleteMapping("/{id}")
     public @ResponseBody ResultBean deleteDepartment(@PathVariable Long id) {
         service.deleteById(id);
@@ -51,12 +54,14 @@ public class DepartmentController {
         return service.getById(department.getId()).orElse(new Department());
     }
 
+    @OperationLog("更新部门")
     @PutMapping
     public @ResponseBody ResultBean updateDepartment(@RequestBody Department department) {
         service.save(department);
         return ResultBean.success();
     }
 
+    @OperationLog("删除部门")
     @PostMapping("delete")
     @ResponseBody
     public ResultBean removeDepartment(@RequestBody List<String> ids) {

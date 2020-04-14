@@ -36,6 +36,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       </ul>
     </div>
     <form class="user-edit" action="" method="post" >
+      <input type="hidden" name="id" value="${user.id}">
       <div class="layui-form-item">
         <label class="layui-form-label">用户昵称</label>
         <div class="layui-input-inline">
@@ -94,10 +95,10 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
        , layer = layui.layer;
       form.on('submit(save)', function (form) {
           var data = form.field;
-          $.post('<%=basePath%>api/user/userInfo', form.field, function (result) {
+          ajaxJsonRequest("POST", '<%=basePath%>api/user/userInfo', JSON.stringify(data), function(result) {
               handlerResult(result, function (data) {
-                  layer.msg("重置成功", {icon: 6});
-                  parent.layer.close(index);
+                  layer.msg("更新成功", {icon: 6});
+                  parent.layer.close(window.parent.layerIndex);
               });
           });
           return false;
