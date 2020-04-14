@@ -1,3 +1,22 @@
+layui.config({
+    base: localStorage.getItem('basePath')+ "static/js/",
+}).use(["tabRightMenu"], function () {
+    var tabRightMenu = layui.tabRightMenu;
+
+    // 渲染 tab 右键菜单.
+    tabRightMenu.render({
+        filter: "iframe-tabs",
+        pintabIDs: ["home"],
+        width: 110,
+    });
+    
+    setTimeout(function() {
+        $(".page-loading").hide();
+    }, 500);
+
+});
+
+
 layui.use(['element', 'form', 'layer', 'upload'], function () {
     var $ = layui.jquery;
     var element = layui.element; //加载element模块

@@ -59,7 +59,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
   <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
+  <script src="<%=basePath%>static/js/main.js"></script>
 
   <script>
     layui.use(['form', 'layer'], function () {

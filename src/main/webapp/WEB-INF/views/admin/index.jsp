@@ -43,7 +43,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       </a>
       <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
-          <a href="#"> 
+          <a href="admin#"> 
             <i class="fa fa-bell-o fa-lg"></i>
           </a>
         </li>
@@ -81,7 +81,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="layui-side layui-bg-black">
       <div class="layui-side-scroll">
         <div class="layui-side-user">
-          <img class="layui-side-user-avatar open-popup" data-size="680,464" src="<%=basePath%>static/images/logo.png" alt="logo" />
+          <img class="layui-side-user-avatar" data-size="680,464" src="<%=basePath%>static/images/logo.png" alt="logo" />
           <div>
             <p class="layui-side-user-name">超级管理员</p>
             <p class="layui-side-user-designation">在线</p>
@@ -139,10 +139,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   <!-- jQuery 3 -->
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
   <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
-  <script src="<%=basePath%>static/js/zadmin.js"></script>
-  <script src="<%=basePath%>static/js/dtree.js"></script>
-  <script src="<%=basePath%>static/js/tabRightMenu.js"></script>
+  <script src="<%=basePath%>static/js/main.js"></script>
   <script>
 	function logout() {
 		sessionStorage.removeItem("tabs");

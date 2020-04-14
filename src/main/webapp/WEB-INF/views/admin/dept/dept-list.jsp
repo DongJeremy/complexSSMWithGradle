@@ -48,14 +48,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
   </div>
 
   <script type="text/html" id="column-toolbar">
-	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
   </script>
 
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
   <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/zadmin.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
+  <script src="<%=basePath%>static/js/main.js"></script>
 
   <script>
     layui.config({

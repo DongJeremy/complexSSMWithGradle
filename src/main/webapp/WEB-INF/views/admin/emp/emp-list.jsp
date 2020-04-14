@@ -87,8 +87,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
   <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
   <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/zadmin.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
+  <script src="<%=basePath%>static/js/main.js"></script>
 
   <script>
     layui.use(['table', 'element', 'form', 'upload'], function () {
@@ -159,7 +158,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             layer.open({
                 content: "<%=basePath%>admin/empChangeView",
                 title: "新增用户",
-                area: ['500px', '500px'],
+                area: ['480px', '460px'],
                 type: 2,
                 maxmin: true,
                 shadeClose: true,
