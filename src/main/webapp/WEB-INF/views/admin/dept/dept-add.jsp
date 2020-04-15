@@ -8,56 +8,38 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"></meta>
-<base href="<%=basePath%>">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-<meta name="renderer" content="webkit" />
-<title>用户添加</title>
-<link rel="stylesheet" href="<%=basePath%>/webjars/layui/css/layui.css" />
-<link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/animate.min.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/formSelects-v4.css">
+<jsp:include page="../common/header.jsp"/>
 </head>
-<body class="animated fadeIn timo-layout-page">
-  <div class="z-body animated fadeIn">
-    <form action="" method="post" class="layui-form layui-form-pane">
+<body>
+  <div class="layui-form animated fadeIn timo-compile">
+    <form action="" method="post">
       <div class="layui-form-item">
         <label for="deptName" class="layui-form-label"> 部门名称 </label>
-        <div class="layui-input-block">
+        <div class="layui-input-inline">
           <input type="text" id="name" name="name" value="${department.name}" lay-verify="required" lay-vertype="tips" autocomplete="off" placeholder="请输入部门名称" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label for="description" class="layui-form-label"> 部门描述 </label>
-        <div class="layui-input-block">
+        <div class="layui-input-inline">
           <input type="text" id="description" name="description" value="${department.description}" lay-verify="required" lay-vertype="tips" autocomplete="off" placeholder="请输入部门描述" class="layui-input">
         </div>
       </div>
-
-      <div class="layui-form-item">
-        <div class="layui-input-block" style="margin-left: 0; text-align: center;">
-          <input type="hidden" name="id" value="${department.id}">
-          <button type="submit" class="layui-btn layui-btn-normal btn-w100" lay-submit 
-            <c:if test="${department == null}" var="flag" scope="session">lay-filter="add"</c:if>
-            <c:if test="${not flag}">lay-filter="edit"</c:if>>
-            <c:if test="${department == null}" var="flag" scope="session">增加</c:if>
-            <c:if test="${not flag}">修改</c:if>
-          </button>
-        </div>
+      <div class="layui-form-item timo-finally">
+        <input type="hidden" name="id" value="${department.id}">
+        <button class="layui-btn" lay-submit=""
+           <c:if test="${department == null}" var="flag" scope="session">lay-filter="add"</c:if>
+           <c:if test="${not flag}">lay-filter="edit"</c:if>>
+           <c:if test="${department == null}" var="flag" scope="session">增加</c:if>
+           <c:if test="${not flag}">修改</c:if></button>
+        <button class="layui-btn btn-secondary close-frame-popup"><i class="fa fa-times-circle"></i> 关闭</button>
       </div>
     </form>
   </div>
 
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/main.js"></script>
-
+  <jsp:include page="../common/footer.jsp"/>
   <script>
-        layui.config({
-            base: '/static/js/'
-        }).use(['form', 'layer'], function () {
+        layui.use(['form', 'layer'], function () {
             var $ = layui.jquery,
                 form = layui.form,
                 layer = layui.layer;

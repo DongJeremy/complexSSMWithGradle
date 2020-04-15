@@ -63,6 +63,12 @@ public class EmployeePageController {
         return "admin/emp/emp-add";
     }
 
+    @GetMapping("/empDetailsView/{id}")
+    public String empDetailsView(ModelMap model, @PathVariable("id") Long id) throws Exception {
+        model.addAttribute("employee", employeeService.getById(id).orElse(new Employee()));
+        return "admin/emp/emp-details";
+    }
+
     @GetMapping("/empView/excel/download")
     public void empViewDownload(HttpServletResponse response) throws IOException {
         String excelFileName = "employee";

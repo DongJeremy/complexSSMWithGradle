@@ -56,8 +56,5 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <div class="error-page-info-desc">啊哦，你访问的页面不存在(⋟﹏⋞)</div>
     </div>
   </div>
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
 </body>
 </html>

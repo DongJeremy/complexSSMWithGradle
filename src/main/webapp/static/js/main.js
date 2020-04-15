@@ -362,10 +362,6 @@ layui.use(['element', 'form', 'layer', 'upload'], function () {
         parent.layer.close(index);
     });
 
-    setTimeout(function() {
-        $(".page-loading").hide();
-    }, 500);
-
     /* 显示错误信息 */
     function showError(msg) {
         layer.msg(msg, {icon: 2});
@@ -400,6 +396,10 @@ function handlerResult(result, fn) {
         showError(result.msg);
     }
 }
+
+setTimeout(function() {
+    $(".page-loading").hide();
+}, 500);
 
 function uuid() {
     var s = [];

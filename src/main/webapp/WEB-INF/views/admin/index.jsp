@@ -10,19 +10,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-<meta name="renderer" content="webkit" />
-<title>JLZMSYS管理系统</title>
-<link rel="icon" type="image/x-icon" href="<%=basePath%>static/favicon.ico">
-<link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css">
-<link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/zadmin.css" media="all">
-<link rel="stylesheet" href="<%=basePath%>static/css/dtree.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/font.css">
+<jsp:include page="common/header.jsp"/>
 <script type="text/javascript">
 	var basePath = "<%=basePath%>";
 	localStorage.setItem('basePath', basePath)
@@ -136,20 +124,17 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <div class="site-mobile-shade"></div>
   </div>
 
-  <!-- jQuery 3 -->
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/main.js"></script>
+  <jsp:include page="common/footer.jsp"/>
   <script>
-	function logout() {
-		sessionStorage.removeItem("tabs");
-		sessionStorage.removeItem("currentTabId");
-		$.post('logout', function(result) {
-			if (result.code == 0) {
-				window.location.href = '<%=basePath%>login';
-			}
-		}, 'json');
-	}
+    function logout() {
+        sessionStorage.removeItem("tabs");
+        sessionStorage.removeItem("currentTabId");
+        $.post('logout', function(result) {
+            if (result.code == 0) {
+                window.location.href = '<%=basePath%>login';
+            }
+        }, 'json');
+    }
   </script>
 </body>
 </html>

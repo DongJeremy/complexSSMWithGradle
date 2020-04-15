@@ -8,21 +8,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<meta charset="utf-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-<meta name="renderer" content="webkit" />
-<link rel="icon" href="<%=basePath%>static/favicon.ico" type="image/x-icon" />
-<title>重置密码</title>
-<link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css" />
-<link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/animate.min.css">
+<jsp:include page="../common/header.jsp"/>
 </head>
-<body>
-  <div class="layui-form timo-compile user-info-page">
-    <div class="user-info">
+<body class="animated fadeIn timo-layout-page">
+  <div class="page-loading">
+    <div class="rubik-loader"></div>
+  </div>
+  <div class="animated fadeIn timo-compile">
+    <div class="user-info layui-form">
       <div class="user-avatar-box">
         <img class="user-avatar" src="<%=basePath%>static/images/security.png" alt="头像"> <span
           class="edit-avatar" attr="data-url=<%=basePath%>userPicture">修改头像</span>
@@ -35,7 +28,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         <li>邮箱：<span>${user.email}</span></li>
       </ul>
     </div>
-    <form class="user-edit" action="" method="post" >
+    <form class="user-edit layui-form" action="" method="post" >
       <input type="hidden" name="id" value="${user.id}">
       <div class="layui-form-item">
         <label class="layui-form-label">用户昵称</label>
@@ -83,10 +76,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     </form>
   </div>
 
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/main.js"></script>
-
+  <jsp:include page="../common/footer.jsp"/>
   <script>
   layui.use(['jquery', 'form', 'layer'], function () {
       var $ = layui.jquery;

@@ -8,24 +8,14 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<meta charset="utf-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-<meta name="renderer" content="webkit" />
-<link rel="icon" href="<%=basePath%>static/favicon.ico" type="image/x-icon" />
-<title>重置密码</title>
-<link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css" />
-<link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/animate.min.css">
+<jsp:include page="../common/header.jsp"/>
 </head>
 <body class="animated fadeIn timo-layout-page">
   <div class="page-loading">
     <div class="rubik-loader"></div>
   </div>
 
-  <div class="z-body animated fadeIn">
+  <div class="animated fadeIn">
     <form action="" method="post" class="layui-form layui-form-pane">
       <div class="layui-form-item">
         <label for="password0" class="layui-form-label"> 原密码 </label>
@@ -57,10 +47,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     </form>
   </div>
 
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/main.js"></script>
-
+  <jsp:include page="../common/footer.jsp"/>
   <script>
     layui.use(['form', 'layer'], function () {
         $ = layui.jquery;

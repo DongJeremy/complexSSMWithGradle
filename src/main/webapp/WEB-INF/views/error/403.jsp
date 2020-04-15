@@ -14,7 +14,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="icon" href="static/favicon.ico" type="image/x-icon" >
 <link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css">
 </head>
 <style>
 .error-page {
@@ -57,8 +56,5 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <div class="error-page-info-desc">抱歉，你无权访问此页面</div>
     </div>
   </div>
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
 </body>
 </html>

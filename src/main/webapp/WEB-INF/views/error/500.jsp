@@ -56,8 +56,5 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
       <div class="error-page-info-desc">诶呦，服务器开了个小差~</div>
     </div>
   </div>
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
 </body>
 </html>

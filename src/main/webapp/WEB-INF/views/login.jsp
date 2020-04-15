@@ -51,11 +51,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             <button lay-submit lay-filter="login" class="layui-btn layui-btn-fluid ajax-login"><i class="fa fa-sign-in fa-lg fa-fw"></i> 登录</button>
         </form>
     </div>
-    <!-- jQuery 3 -->
-    <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-    <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-    <script src="<%=basePath%>static/js/common.js"></script>
-    
+    <jsp:include page="admin/common/footer.jsp"/>
     <script type="text/javascript">
         function renderDone(data) {
             var winObj = window.open(data, 'newwindow', 'height=500, width=500, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no');

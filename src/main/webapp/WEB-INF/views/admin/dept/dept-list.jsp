@@ -7,18 +7,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<meta charset="utf-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-<meta name="renderer" content="webkit" />
-<link rel="icon" href="<%=basePath%>static/favicon.ico" type="image/x-icon" />
-<title>部门管理</title>
-<link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css" />
-<link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/zadmin.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/animate.min.css">
+<jsp:include page="../common/header.jsp"/>
 </head>
 <body class="animated fadeIn timo-layout-page">
   <div class="page-loading">
@@ -52,14 +41,9 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
   </script>
 
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/main.js"></script>
-
+  <jsp:include page="../common/footer.jsp"/>
   <script>
-    layui.config({
-        base : '<%=basePath%>static/js/'
-    }).use([ 'jquery', 'layer', 'table', 'element' ], function() {
+    layui.use([ 'jquery', 'layer', 'table', 'element' ], function() {
         var layer = layui.layer
         , table = layui.table;
         table.render({
@@ -81,7 +65,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             layer.open({
                 content : "<%=basePath%>admin/deptChangeView",
                 title : "新增部门",
-                area : [ '500px', '260px' ],
+                area : [ '480px', '250px' ],
                 type : 2,
                 maxmin : true,
                 shadeClose : true,
@@ -119,7 +103,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 layer.open({
                     content : '<%=basePath%>admin/deptChangeView/' + data.id,
                     title : "编辑",
-                    area : [ '500px', '260px' ],
+                    area : [ '500px', '250px' ],
                     type : 2,
                     maxmin : true,
                     shadeClose : true,

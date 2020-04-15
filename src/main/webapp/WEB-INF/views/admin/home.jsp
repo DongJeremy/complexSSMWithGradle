@@ -11,18 +11,10 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-<meta name="renderer" content="webkit" />
-<link rel="icon" type="image/x-icon" href="<%=basePath%>static/favicon.ico">
-<title>主页</title>
-<link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/zadmin.css" media="all">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css" media="all">
+<jsp:include page="common/header.jsp"/>
 </head>
 <body>
-  <div class="z-body animated fadeIn">
+  <div class="animated fadeIn">
     <blockquote class="layui-elem-quote">
       欢迎：<span><shiro:principal property="username" /></span>！当前时间:
       <c:set var="now" value="<%=new java.util.Date()%>" />
@@ -79,10 +71,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     </fieldset>
   </div>
 
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
+  <jsp:include page="common/footer.jsp"/>
   <script src="<%=basePath%>webjars/echarts/echarts.min.js"></script>
-  <script src="<%=basePath%>static/js/common.js"></script>
   <script type="application/javascript">
         layui.use('element', function(){
             layui.$("#main").css("width", (window.innerWidth - 100) +'px');

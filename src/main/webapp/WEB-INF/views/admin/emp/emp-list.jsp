@@ -8,18 +8,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
-<meta charset="utf-8"></meta>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-<meta name="renderer" content="webkit" />
-<link rel="icon" href="<%=basePath%>static/favicon.ico" type="image/x-icon" />
-<title>雇员管理</title>
-<link rel="stylesheet" href="<%=basePath%>webjars/layui/css/layui.css" />
-<link rel="stylesheet" href="<%=basePath%>webjars/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/zadmin.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/common.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/animate.min.css">
+<jsp:include page="../common/header.jsp"/>
 </head>
 <body class="animated fadeIn timo-layout-page">
   <div class="page-loading">
@@ -68,7 +57,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 <i class="fa fa-sign-in"></i> 导入
               </button>
               <button class="layui-btn open-popup" id="export_btn">
-                <i class="fa fa-sign-out"></i> 导出
+                <i class="layui-icon">&#xe67d;</i> 导出
               </button>
             </div>
           </div>
@@ -82,13 +71,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 
   <script type="text/html" id="column-toolbar">
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="info">详细</a>
     <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del">删除</a>
   </script>
 
-  <script src="<%=basePath%>webjars/jquery/jquery.min.js"></script>
-  <script src="<%=basePath%>webjars/layui/layui.all.js"></script>
-  <script src="<%=basePath%>static/js/main.js"></script>
-
+  <jsp:include page="../common/footer.jsp"/>
   <script>
     layui.use(['table', 'element', 'form', 'upload'], function () {
         var table = layui.table
@@ -204,6 +191,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             var event = obj.event;
             if (event === 'edit') {
                 edit(data.id);
+            } else if (event === 'info') {
+                info(data.id);
             } else if (event === 'del') {
                 del(obj);
             }
@@ -213,7 +202,21 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
             layer.open({
                 content: '<%=basePath%>admin/empChangeView/' + id,
                 title: "编辑",
-                area: ['500px', '500px'],
+                area: ['500px', '460px'],
+                type: 2,
+                maxmin: true,
+                shadeClose: true,
+                end: function () {
+                    table.reload('userTable');
+                }
+            });
+        }
+
+        function info(id) {
+            layer.open({
+                content: '<%=basePath%>admin/empDetailsView/' + id,
+                title: "详细信息",
+                area: ['700px', '400px'],
                 type: 2,
                 maxmin: true,
                 shadeClose: true,
