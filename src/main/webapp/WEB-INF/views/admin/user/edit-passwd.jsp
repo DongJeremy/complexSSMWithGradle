@@ -10,7 +10,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <head>
 <jsp:include page="../common/header.jsp"/>
 </head>
-<body class="animated fadeIn timo-layout-page">
+<body>
   <div class="page-loading">
     <div class="rubik-loader"></div>
   </div>

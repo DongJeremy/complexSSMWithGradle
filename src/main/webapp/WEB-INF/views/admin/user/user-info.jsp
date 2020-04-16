@@ -10,11 +10,11 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <head>
 <jsp:include page="../common/header.jsp"/>
 </head>
-<body class="animated fadeIn timo-layout-page">
+<body>
   <div class="page-loading">
     <div class="rubik-loader"></div>
   </div>
-  <div class="animated fadeIn timo-compile">
+  <div class="animated fadeIn timo-compile user-info-page">
     <div class="user-info layui-form">
       <div class="user-avatar-box">
         <img class="user-avatar" src="<%=basePath%>static/images/security.png" alt="头像"> <span

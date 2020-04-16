@@ -1,4 +1,4 @@
-package org.cloud.ssm.controller;
+package org.cloud.ssm.controller.page;
 
 import java.util.ArrayList;
 import java.util.List;

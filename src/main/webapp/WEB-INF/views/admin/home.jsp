@@ -14,61 +14,63 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 <jsp:include page="common/header.jsp"/>
 </head>
 <body>
-  <div class="animated fadeIn">
-    <blockquote class="layui-elem-quote">
-      欢迎：<span><shiro:principal property="username" /></span>！当前时间:
-      <c:set var="now" value="<%=new java.util.Date()%>" />
-      <fmt:formatDate type="both" value="${now}" />
-    </blockquote>
-    <fieldset class="layui-elem-field">
-      <legend>数据统计</legend>
-      <div class="layui-field-box">
-        <div class="layui-col-md12">
-          <div class="layui-card">
-            <div class="layui-card-body">
-              <div class="layui-carousel x-admin-carousel x-admin-backlog" lay-anim="" lay-indicator="inside" lay-arrow="none" style="width: 100%; height: 90px;">
-                <div carousel-item="">
-                  <ul class="layui-row layui-col-space10 layui-this">
-                    <li class="layui-col-xs2"><a href="#" onclick="openTab('用户管理', '/user/index')" class="x-admin-backlog-body">
-                      <h3>用户数</h3>
-                      <p><cite>${userCount}</cite></p>
-                    </a></li>
-                    <li class="layui-col-xs2"><a href="#" onclick="openTab('角色管理', '/role/index')" class="x-admin-backlog-body">
-                      <h3>角色数</h3>
-                      <p><cite>${roleCount}</cite></p>
-                    </a></li>
-                    <li class="layui-col-xs2"><a href="#" onclick="openTab('菜单管理', '/menu/index')" class="x-admin-backlog-body">
-                      <h3>菜单数</h3>
-                      <p><cite>${menuCount}</cite></p>
-                    </a></li>
-                    <li class="layui-col-xs2"><a href="#" onclick="openTab('登录日志', '/log/login/index')" class="x-admin-backlog-body">
-                      <h3>登录日志</h3>
-                      <p><cite>${loginLogCount}</cite></p>
-                    </a></li>
-                    <li class="layui-col-xs2"><a href="#" onclick="openTab('操作日志', '/log/sys/index')" class="x-admin-backlog-body">
-                      <h3>操作日志</h3>
-                      <p><cite>${sysLogCount}</cite></p>
-                    </a></li>
-                    <li class="layui-col-xs2"><a href="#" onclick="openTab('system', '/systemInfo')" class="x-admin-backlog-body">
-                        <h3>system</h3>
-                        <p>
-                          <cite>${userOnlineCount}</cite>
-                        </p>
-                    </a></li>
-                  </ul>
-                </div>
-              </div>
+  <div class="animated fadeIn timo-layout-page">
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <blockquote class="layui-elem-quote custom-quote">欢迎：<span><shiro:principal property="username" /></span>！当前时间:
+          <c:set var="now" value="<%=new java.util.Date()%>" />
+          <fmt:formatDate type="both" value="${now}" />
+        </blockquote>
+      </div>
+    </div>
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md3 layui-col-sm6 layui-col-xs12">
+          <div class="widget-small widget-user">
+            <i class="icon fa fa-users fa-3x"></i>
+            <div class="widget-small-info">
+              <h4>用户</h4>
+              <span>12</span>
             </div>
           </div>
         </div>
+        <div class="layui-col-md3 layui-col-sm6 layui-col-xs12">
+            <div class="widget-small widget-visit">
+              <i class="icon fa fa-line-chart fa-3x"></i>
+              <div class="widget-small-info">
+                <h4>访问</h4>
+                <span>1,200</span>
+              </div>
+            </div>
+        </div>
+        <div class="layui-col-md3 layui-col-sm6 layui-col-xs12">
+              <div class="widget-small widget-message">
+                  <i class="icon fa fa-comments-o fa-3x"></i>
+                  <div class="widget-small-info">
+                      <h4>信息</h4>
+                      <span>41</span>
+                  </div>
+              </div>
+        </div>
+        <div class="layui-col-md3 layui-col-sm6 layui-col-xs12">
+              <div class="widget-small widget-like">
+                  <i class="icon fa fa-star fa-3x"></i>
+                  <div class="widget-small-info">
+                      <h4>收藏</h4>
+                      <span>306</span>
+                  </div>
+              </div>
+        </div>
+    </div>
+    <div class="layui-row layui-col-space15">
+      <div class="layui-col-md12">
+        <div class="layui-card">
+          <div class="layui-card-header">项目信息</div>
+          <div class="layui-card-body">
+            <div id="main" style="width: 100%; height: 400px;"></div>
+          </div>
+        </div>
       </div>
-    </fieldset>
-    <fieldset class="layui-elem-field">
-      <legend>最近登录</legend>
-      <div class="layui-field-box">
-        <div id="main" style="width: 100%; height: 400px;"></div>
-      </div>
-    </fieldset>
+    </div>
   </div>
 
   <jsp:include page="common/footer.jsp"/>
@@ -102,7 +104,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                     type: 'line'
                 }]
             };
-            layui.$.get('weekLoginCount', function (data) {
+            layui.$.get('admin/weekLoginCount', function (data) {
             	option.series[0].data = data;
                 // 使用刚指定的配置项和数据显示图表。
                 myChart.setOption(option);

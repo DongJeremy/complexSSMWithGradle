@@ -189,6 +189,153 @@ a {
     margin-right: 10px;
     color: #666666;
 }
+
+.x-admin-carousel, .layui-carousel, .x-admin-carousel>[carousel-item]>* {
+    background-color: #fff
+}
+
+.x-admin-backlog .x-admin-backlog-body {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f8f8f8;
+    color: #999;
+    border-radius: 2px;
+    transition: all .3s;
+    -webkit-transition: all .3s
+}
+
+.x-admin-backlog-body h3 {
+    padding-bottom: 10px;
+    font-size: 12px
+}
+
+.x-admin-backlog-body p cite {
+    font-style: normal;
+    font-size: 30px;
+    font-weight: 300;
+    color: #009688
+}
+
+.x-admin-backlog-body:hover {
+    background-color: #CFCFCF;
+    color: #888
+}
+
+/* 页面通用样式 */
+.timo-layout-page {
+    background-color: #eeeeee;
+    padding: 18px;
+}
+
+.timo-layout-page .timo-card-header {
+    border-radius: 0;
+    border-top: 4px solid #d2d2d2;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.timo-layout-page .timo-card-header .refresh-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 25px;
+    height: 25px;
+    line-height: 26px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.timo-layout-page .timo-card-header .refresh-btn:hover {
+    background-color: #cccccc;
+}
+
+.timo-layout-page .timo-card-screen {
+    margin-bottom: 8px;
+}
+
+.timo-layout-page .timo-card-screen.put-row .screen-btn-group {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 4px;
+}
+
+.timo-layout-page .timo-card-screen .screen-btn-group {
+    margin-right: 1px;
+}
+
+.timo-layout-page .timo-card-screen .screen-btn-group .layui-btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.timo-layout-page .timo-card-screen.put-row .screen-btn-group .btn-group-left {
+    float: left;
+    margin-left: -2px;
+}
+
+.timo-layout-page .timo-card-screen.put-row .screen-btn-group .btn-group-left button {
+    margin-right: 6px;
+}
+
+.timo-layout-page .timo-card-screen.put-row .screen-btn-group .btn-group-right {
+    float: right;
+}
+
+.widget-small {
+    background-color: #FFFFFF;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+}
+
+.widget-small .fa {
+    float: left;
+    width: 40%;
+    line-height: 80px;
+    color: #FFFFFF;
+}
+
+.widget-user .fa {
+    background-color: #029789;
+}
+
+.widget-visit .fa {
+    background-color: #17a2b8;
+}
+
+.widget-message .fa {
+    background-color: #fbad4c;
+}
+
+.widget-like .fa {
+    background-color: #ff646d;
+}
+
+.widget-small-info {
+    float: left;
+    text-align: left;
+    width: 40%;
+    margin-left: 20px;
+    margin-top: 18px;
+    line-height: 24px;
+}
+
+.widget-small-info h4 {
+    font-size: 18px;
+}
+
+.widget-small-info span {
+    font-size: 16px;
+}
+
+.custom-quote {
+    background-color: #ffffff;
+    margin-bottom: 0;
+}
+
 /* 个人中心页面 */
 .user-info-page .user-info {
     position: absolute;
