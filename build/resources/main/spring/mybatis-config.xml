@@ -3,6 +3,11 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+  <!--<settings> -->
+    <!-- 打印查询语句 -->
+    <!-- <setting name="logImpl" value="STDOUT_LOGGING" /> 
+  </settings>-->
+
   <typeAliases>
     <typeAlias type="org.cloud.ssm.entity.Employee" alias="Employee" />
     <typeAlias type="org.cloud.ssm.entity.Department" alias="Department" />
@@ -12,6 +17,7 @@
     <typeAlias type="org.cloud.ssm.entity.Role" alias="Role" />
     <typeAlias type="org.cloud.ssm.entity.UserRole" alias="UserRole" />
     <typeAlias type="org.cloud.ssm.entity.User" alias="User" />
+    <typeAlias type="org.cloud.ssm.entity.SysLog" alias="SysLog" />
   </typeAliases>
 
   <plugins>
@@ -38,5 +44,5 @@
       <property name="params" value="pageNum=start;pageSize=limit;" />
     </plugin>
   </plugins>
-  
+
 </configuration>

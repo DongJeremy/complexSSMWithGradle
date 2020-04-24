@@ -16,7 +16,7 @@
 
   <delete id="deleteByPrimaryKey" parameterType="long">
     DELETE FROM
-    `t_dept` WHERE `t_department`.id=#{id}
+    `t_dept` WHERE `t_dept`.id=#{id}
   </delete>
 
   <insert id="insert" parameterType="Department">
@@ -27,7 +27,7 @@
   <select id="selectByPrimaryKey" resultMap="departmentMap">
     SELECT *
     FROM `t_dept`
-    WHERE id=#{id}
+    WHERE `t_dept`.id=#{id}
   </select>
   
   <select id="selectCount" resultType="long">
@@ -44,7 +44,7 @@
       </if>
         description = #{description}
     </set>
-    WHERE id=#{id}
+    WHERE `t_dept`.id=#{id}
   </update>
 
 </mapper>

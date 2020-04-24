@@ -12,7 +12,7 @@
     <Logger name="org.hibernate" level="WARN" additivity="false">
       <AppenderRef ref="Console" />
     </Logger>
-    <Logger name="com.mchange.v2.c3p0" level="INFO" additivity="false">
+    <Logger name="org.springframework.context" level="WARN" additivity="false">
       <AppenderRef ref="Console" />
     </Logger>
     <Root level="INFO">

@@ -15,7 +15,7 @@
       <result property="name" column="department_name"/>
     </association>
   </resultMap>
-  
+
   <sql id="selectColumns">
     A.id,
     A.name,
@@ -35,7 +35,7 @@
     LEFT OUTER JOIN `t_dept` B ON A.department=B.id
     ORDER BY A.id
   </select>
-  
+
   <select id="selectAllByCondition" resultMap="employeeMap">
     SELECT
     <include refid="selectColumns"/>
@@ -53,7 +53,7 @@
     </where>
     ORDER BY A.id
   </select>
-  
+
   <select id="selectCountByCondition" resultType="long">
     SELECT count(*)
     FROM 
@@ -79,7 +79,7 @@
     INSERT INTO `t_emp` (id,name,address,age,department,salary,tel)
     VALUES (NULL,#{name},#{address},#{age},#{department.id},#{salary},#{tel})
   </insert>
-  
+
   <select id="selectByPrimaryKey" resultMap="employeeMap">
     SELECT
     <include refid="selectColumns"/>
@@ -89,7 +89,7 @@
       A.id=#{id}
     </where>
   </select>
-  
+
   <select id="selectCount" resultType="long">
     SELECT 
       count(*)
