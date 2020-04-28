@@ -134,7 +134,7 @@ CREATE TABLE `sys_users`  (
 -- ----------------------------
 -- Records of sys_users
 -- ----------------------------
-INSERT INTO `sys_users` VALUES (1, 'admin', 'admin', '男', '13588889854', '$shiro1$SHA-256$50000$tkXJB+7mQLtPhAKjnw630g==$TAWyEVOKaFZu9289OG0hvx9/kZ/X5HWvZkc3YcnEmkE=', 1, 'admin@cloud.org', '2020-04-13 17:00:29', '2019-06-21 22:21:05', '管理员');
+INSERT INTO `sys_users` VALUES (1, 'admin', 'admin', '1', '13588889854', '$shiro1$SHA-256$50000$tkXJB+7mQLtPhAKjnw630g==$TAWyEVOKaFZu9289OG0hvx9/kZ/X5HWvZkc3YcnEmkE=', 1, 'admin@cloud.org', '2020-04-13 17:00:29', '2019-06-21 22:21:05', '管理员');
 INSERT INTO `sys_users` VALUES (2, 'ddw', NULL, NULL, NULL, '$shiro1$SHA-256$50000$jssZTPmF7UIbpgvW9iHoIQ==$GzI5SSfPbHmDd9vmZhDa2Jf5ZirDm0do31rxEqacDuk=', 1, 'ddw@cloud.org', '2020-04-10 15:00:01', '2019-06-21 22:21:07', NULL);
 
 -- ----------------------------
