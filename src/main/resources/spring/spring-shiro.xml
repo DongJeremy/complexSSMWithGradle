@@ -9,8 +9,9 @@
 
   <description>Shiro Configuration</description>
 
-  <!-- 加载配置属性文件 -->
-  <context:property-placeholder location="classpath:config.properties" />
+  <!-- 加载配置属性文件
+  <context:property-placeholder location="classpath:config.properties" /> -->
+  <context:property-placeholder location="file:${catalina.home}/conf/application.properties"/>
 
   <bean id="projectProperties" class="org.cloud.ssm.common.bean.ProjectProperties">
     <property name="captchaOpen" value="${project.captchaOpen}" />

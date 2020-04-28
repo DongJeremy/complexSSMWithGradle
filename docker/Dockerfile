@@ -1,4 +1,4 @@
-FROM redhat-openjdk11
+FROM 192.168.1.200:5000/redhat-openjdk11
 MAINTAINER OPENJDK Docker Maintainers "d05660@163.com"
 
 ENV     JAVA_HOME="/opt/java-11-openjdk-11.0.4.11-5.static.jdk.openjdkportable.x86_64"
