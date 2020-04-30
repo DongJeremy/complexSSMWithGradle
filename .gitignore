@@ -2,6 +2,7 @@
 *.class
 bin/
 build/
+target/
 .gradle
 autogen/src
 autogen/resources
@@ -16,7 +17,6 @@ autogen/resources
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
